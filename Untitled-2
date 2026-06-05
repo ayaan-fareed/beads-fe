@@ -1,0 +1,99 @@
+{
+    "data": [
+        {
+            "id": 2,
+            "documentId": "c7vqnbtewruns1y87jm5y5w4",
+            "title": "loki",
+            "description": "desc os here",
+            "slug": "loki",
+            "category": "Necklaces",
+            "badge": "New",
+            "price": 5689,
+            "available": true,
+            "createdAt": "2026-06-04T14:54:46.058Z",
+            "updatedAt": "2026-06-04T14:54:46.058Z",
+            "publishedAt": "2026-06-04T14:54:46.154Z",
+            "image": [
+                {
+                    "id": 1,
+                    "documentId": "p9typmopc9dbo0fz1a5l86pe",
+                    "name": "Screen Shot 2026-04-28 at 6.52.51 PM.png",
+                    "alternativeText": null,
+                    "caption": null,
+                    "focalPoint": null,
+                    "width": 2022,
+                    "height": 1065,
+                    "formats": {
+                        "large": {
+                            "ext": ".png",
+                            "url": "https://useful-surprise-8488476765.media.strapiapp.com/large_Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c.png",
+                            "hash": "large_Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c",
+                            "mime": "image/png",
+                            "name": "large_Screen Shot 2026-04-28 at 6.52.51 PM.png",
+                            "path": null,
+                            "size": 187.59,
+                            "width": 1000,
+                            "height": 527,
+                            "sizeInBytes": 187585
+                        },
+                        "small": {
+                            "ext": ".png",
+                            "url": "https://useful-surprise-8488476765.media.strapiapp.com/small_Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c.png",
+                            "hash": "small_Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c",
+                            "mime": "image/png",
+                            "name": "small_Screen Shot 2026-04-28 at 6.52.51 PM.png",
+                            "path": null,
+                            "size": 63.42,
+                            "width": 500,
+                            "height": 263,
+                            "sizeInBytes": 63423
+                        },
+                        "medium": {
+                            "ext": ".png",
+                            "url": "https://useful-surprise-8488476765.media.strapiapp.com/medium_Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c.png",
+                            "hash": "medium_Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c",
+                            "mime": "image/png",
+                            "name": "medium_Screen Shot 2026-04-28 at 6.52.51 PM.png",
+                            "path": null,
+                            "size": 121.87,
+                            "width": 750,
+                            "height": 395,
+                            "sizeInBytes": 121869
+                        },
+                        "thumbnail": {
+                            "ext": ".png",
+                            "url": "https://useful-surprise-8488476765.media.strapiapp.com/thumbnail_Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c.png",
+                            "hash": "thumbnail_Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c",
+                            "mime": "image/png",
+                            "name": "thumbnail_Screen Shot 2026-04-28 at 6.52.51 PM.png",
+                            "path": null,
+                            "size": 21.36,
+                            "width": 245,
+                            "height": 129,
+                            "sizeInBytes": 21361
+                        }
+                    },
+                    "hash": "Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 79.81,
+                    "url": "https://useful-surprise-8488476765.media.strapiapp.com/Screen_Shot_2026_04_28_at_6_52_51_PM_97936a488c.png",
+                    "previewUrl": null,
+                    "provider": "strapi-provider-upload-strapi-cloud",
+                    "provider_metadata": null,
+                    "createdAt": "2026-06-04T14:54:31.329Z",
+                    "updatedAt": "2026-06-04T14:54:31.329Z",
+                    "publishedAt": "2026-06-04T14:54:31.331Z"
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 1
+        }
+    }
+}

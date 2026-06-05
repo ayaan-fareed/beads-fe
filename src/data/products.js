@@ -11,4 +11,4 @@ export const products = [
   { id: 8, name: 'Layered Bead Bracelet', tag: 'Bracelet', desc: 'Trendy three-layer multi-color bead bracelet.', price: 550, icon: '🪬', badge: 'new' }
 ];
 
-export const categories = ['All', 'Necklace', 'Earrings', 'Ring', 'Bracelet', 'Article'];
+export const categories = ['All', 'Necklace', 'Earrings', 'Ring', 'Bracelet'];

@@ -27,7 +27,16 @@ class StrapiAPI {
     };
 
     try {
-      const response = await fetch(url, config);
+      // Add timeout to prevent long loading times
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
+      
+      const response = await fetch(url, {
+        ...config,
+        signal: controller.signal
+      });
+      
+      clearTimeout(timeoutId);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -36,6 +45,9 @@ class StrapiAPI {
       const data = await response.json();
       return data;
     } catch (error) {
+      if (error.name === 'AbortError') {
+        throw new Error('Request timeout - API taking too long to respond');
+      }
       console.error('Strapi API Error:', error);
       throw error;
     }

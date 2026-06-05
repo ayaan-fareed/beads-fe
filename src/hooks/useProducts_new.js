@@ -2,6 +2,22 @@ import { useState, useEffect } from 'react';
 import { strapiAPI } from '../services/strapi.js';
 import { products as mockProducts } from '../data/products.js';
 
+// Map API category names to frontend category names
+function mapCategory(category) {
+  const categoryMap = {
+    'Necklaces': 'Necklace',
+    'Earrings': 'Earrings', // Keep plural for Earrings since categories array uses 'Earrings'
+    'Rings': 'Ring',
+    'Bracelets': 'Bracelet',
+    'necklaces': 'Necklace',
+    'earrings': 'Earrings', // Keep plural for Earrings
+    'rings': 'Ring', 
+    'bracelets': 'Bracelet'
+  };
+  
+  return categoryMap[category] || category || 'Product';
+}
+
 export function useProducts() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +52,7 @@ export function useProducts() {
             return {
               id: product.id,
               name: product.name || product.attributes?.name || product.title || product.attributes?.title || 'Unknown Product',
-              tag: product.category || product.attributes?.category || product.tag || product.attributes?.tag || 'Product',
+              tag: mapCategory(product.category || product.attributes?.category || product.tag || product.attributes?.tag || 'Product'),
               desc: product.description || product.attributes?.description || product.desc || product.attributes?.desc || 'No description available',
               price: product.price || product.attributes?.price || Math.floor(Math.random() * 1000) + 300, // Random price if not specified
               icon: product.icon || product.attributes?.icon || '📿', // Default product icon

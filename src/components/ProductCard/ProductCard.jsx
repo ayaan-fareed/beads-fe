@@ -13,9 +13,13 @@ export default function ProductCard({ product, onAddToCart }) {
       <div className="productBody">
         <div className="productTop">
           <span className="productTag">{product.tag}</span>
-          {product.badge === 'new' && <span className="badge badgeNew">NEW</span>}
-          {product.badge === 'hot' && <span className="badge badgeHot">HOT</span>}
-          {!product.badge && <span />}
+          {/* Debug: Show badge value */}
+          {console.log('Product badge:', product.badge, 'Type:', typeof product.badge)}
+          {product.badge && (
+            <span className={`badge badge${product.badge}`}>
+              {product.badge.toUpperCase()}
+            </span>
+          )}
         </div>
         <h3>{product.name}</h3>
         <p>{product.desc}</p>

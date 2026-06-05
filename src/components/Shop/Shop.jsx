@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { categories } from '../../data/products.js';
 import Footer from '../Footer/Footer.jsx';
 import ProductCard from '../ProductCard/ProductCard.jsx';
-import APIStatus from '../APIStatus/APIStatus.jsx';
+import SkeletonCard from '../SkeletonCard/SkeletonCard.jsx';
 import './Shop.css';
 
 export default function Shop({ onAddToCart, products, loading, error }) {
@@ -17,8 +17,6 @@ export default function Shop({ onAddToCart, products, loading, error }) {
         <p>Every piece is unique and handmade with love.</p>
       </section>
 
-      <APIStatus />
-
       <section className="filterBar" aria-label="Product filters">
         {categories.map((category) => (
           <button key={category} className={`filterBtn ${filter === category ? 'active' : ''}`} onClick={() => setFilter(category)}>
@@ -28,7 +26,12 @@ export default function Shop({ onAddToCart, products, loading, error }) {
       </section>
 
       <section className="shopGrid">
-        {loading && <p className="loadingMessage">Loading products...</p>}
+        {loading && (
+          // Show skeleton cards while loading
+          Array.from({ length: 6 }).map((_, index) => (
+            <SkeletonCard key={`skeleton-${index}`} />
+          ))
+        )}
         {error && <p className="errorMessage">Error loading products: {error}</p>}
         {!loading && !error && (
           filteredProducts.length ? filteredProducts.map((product) => (
