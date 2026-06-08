@@ -214,19 +214,19 @@ export default function Home({ onNavigate }) {
           </div>
           <div className="instagramGrid">
             <div className="instaImg">
-              <img src="/1 (1).png" alt="Instagram Jewelry Collection 1" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src="/bracelet-image.png" alt="Instagram Jewelry Collection 1" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
             <div className="instaImg">
-              <img src="/2 (1).png" alt="Instagram Jewelry Collection 2" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src="/necklace-image2.png" alt="Instagram Jewelry Collection 2" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
             <div className="instaImg">
-              <img src="/3.png" alt="Instagram Jewelry Collection 3" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src="/rings-image.png" alt="Instagram Jewelry Collection 3" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
             <div className="instaImg">
-              <img src="/4.png" alt="Instagram Jewelry Collection 4" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src="/tops-image.png" alt="Instagram Jewelry Collection 4" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
             <div className="instaImg">
-              <img src="/5.png" alt="Instagram Jewelry Collection 5" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src="/necklace-image.png" alt="Instagram Jewelry Collection 5" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
           </div>
         </div>

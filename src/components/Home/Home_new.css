@@ -45,7 +45,7 @@
   min-height: 710px;
   display: flex;
   align-items: center;
-  background-image: url(/1234.png);
+  background-image: url(/hero-image.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
