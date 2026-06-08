@@ -54,7 +54,7 @@ export default function Footer() {
           <ul className="contact-info">
             <li>WhatsApp: +82 308 916 8530</li>
             <li>Email: hello@stainlesssparkle.com</li>
-            <li>Lahore, Pakistan</li>
+            <li>Karachi , Pakistan</li>
           </ul>
         </div>
       </div>

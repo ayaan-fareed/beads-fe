@@ -1,6 +1,15 @@
 import Footer from '../Footer/Footer.jsx';
 import './Home_new.css';
 
+// Image imports for Vercel deployment
+import ourQualityImage from '../../assets/ourQuality.png';
+import braceletImage from '../../assets/bracelet-image.png';
+import necklaceImage2 from '../../assets/necklace-image2.png';
+import ringsImage from '../../assets/rings-image.png';
+import topsImage from '../../assets/tops-image.png';
+import necklaceImage from '../../assets/necklace-image.png';
+import heroImage from '../../assets/hero-image.png';
+
 const features = [
   { icon: '⚡', title: 'Stainless Steel', text: 'Premium quality stainless steel that never tarnishes.' },
   { icon: '✨', title: 'Hypoallergenic', text: 'Safe for sensitive skin, nickel-free material.' },
@@ -54,7 +63,7 @@ export default function Home({ onNavigate }) {
       {/* ── ANNOUNCEMENT BAR ── */}
 
       {/* ── HERO ── */}
-      <section className="hero">
+      <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="heroInner">
           {/* Left decorative image */}
        
@@ -92,7 +101,7 @@ export default function Home({ onNavigate }) {
         <div className="promiseInner">
           <div className="promiseImg">
             <img 
-              src="/ourQuality.png" 
+              src={ourQualityImage} 
               alt="Quality Stainless Steel Jewellery" 
               onError={(e) => {
                 e.target.style.display = 'none';
@@ -214,19 +223,19 @@ export default function Home({ onNavigate }) {
           </div>
           <div className="instagramGrid">
             <div className="instaImg">
-              <img src="/bracelet-image.png" alt="Instagram Jewelry Collection 1" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src={braceletImage} alt="Instagram Jewelry Collection 1" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
             <div className="instaImg">
-              <img src="/necklace-image2.png" alt="Instagram Jewelry Collection 2" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src={necklaceImage2} alt="Instagram Jewelry Collection 2" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
             <div className="instaImg">
-              <img src="/rings-image.png" alt="Instagram Jewelry Collection 3" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src={ringsImage} alt="Instagram Jewelry Collection 3" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
             <div className="instaImg">
-              <img src="/tops-image.png" alt="Instagram Jewelry Collection 4" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src={topsImage} alt="Instagram Jewelry Collection 4" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
             <div className="instaImg">
-              <img src="/necklace-image.png" alt="Instagram Jewelry Collection 5" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+              <img src={necklaceImage} alt="Instagram Jewelry Collection 5" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
             </div>
           </div>
         </div>
