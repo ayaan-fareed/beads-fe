@@ -8,9 +8,13 @@ const links = [
 
 export default function Navbar({ activePage, cartCount, onNavigate, onOpenCart }) {
   return (
-    <nav className="navbar">
+    <>
+    <div className="announcementBar">
+        <span>✦</span> Free Delivery all across Pakistan on orders above Rs. 3000 <span>✦</span>
+      </div>
+       <nav className="navbar">
       <button className="logo" onClick={() => onNavigate('home')} aria-label="Go to home">
-        elegant <span>beads</span>
+        Stainless <span>sparkle</span>
       </button>
 
       <div className="navLinks" aria-label="Main navigation">
@@ -29,5 +33,7 @@ export default function Navbar({ activePage, cartCount, onNavigate, onOpenCart }
         <span>🛍️</span> Cart <span className="cartCount">{cartCount}</span>
       </button>
     </nav>
+      </>
+   
   );
 }

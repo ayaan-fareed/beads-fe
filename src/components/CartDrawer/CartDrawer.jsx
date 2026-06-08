@@ -28,7 +28,13 @@ export default function CartDrawer({ cart, total, isOpen, onClose, onRemove, onO
           ) : (
             cart.map((item) => (
               <div className="cartItem" key={item.uid}>
-                <div className="cartItemIcon">{item.icon}</div>
+                <div className="cartItemImage">
+                  {item.image ? (
+                    <img src={item.image} alt={item.name} />
+                  ) : (
+                    <div className="cartItemIcon">{item.icon}</div>
+                  )}
+                </div>
                 <div className="cartItemInfo">
                   <div className="cartItemName">{item.name}</div>
                   <div className="cartItemPrice">Rs. {item.price}</div>

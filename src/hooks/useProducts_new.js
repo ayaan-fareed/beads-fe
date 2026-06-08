@@ -19,24 +19,20 @@ function mapCategory(category) {
 }
 
 export function useProducts() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState(mockProducts); // Start with mock data immediately
+  const [loading, setLoading] = useState(false); // Not loading since we have mock data
   const [error, setError] = useState(null);
-  const [usingMockData, setUsingMockData] = useState(false);
+  const [usingMockData, setUsingMockData] = useState(true);
 
   useEffect(() => {
     async function fetchProducts() {
       try {
-        setLoading(true);
-        setUsingMockData(false);
-        
+        // Try to fetch from API in background without blocking UI
         const strapiProducts = await strapiAPI.getProducts();
         
         if (strapiProducts.length === 0) {
-          console.log('No products found in Strapi, falling back to mock data');
-          setProducts(mockProducts);
-          setUsingMockData(true);
-          setError(null);
+          console.log('No products found in Strapi, using mock data');
+          // Keep using mock data, no need to update state
         } else {
           // Transform Strapi products to match existing product structure
           const transformedProducts = strapiProducts.map(product => {
@@ -61,21 +57,22 @@ export function useProducts() {
             };
           });
           
+          // Update with real data if available
           setProducts(transformedProducts);
           setUsingMockData(false);
           setError(null);
         }
       } catch (err) {
-        console.log('API Error, falling back to mock data:', err.message);
-        setProducts(mockProducts);
-        setUsingMockData(true);
-        setError(null); // Don't show error to user, just use mock data
-      } finally {
-        setLoading(false);
+        console.log('API Error, continuing with mock data:', err.message);
+        // Keep using mock data, no need to update state
+        setError(null); // Don't show error to user
       }
     }
 
-    fetchProducts();
+    // Start API call after component mounts, but don't block UI
+    const timeoutId = setTimeout(fetchProducts, 100);
+    
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return { products, loading, error, usingMockData, refetch: () => fetchProducts() };
