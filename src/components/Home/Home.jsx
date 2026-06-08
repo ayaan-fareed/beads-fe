@@ -217,8 +217,8 @@ export default function Home({ onNavigate }) {
             </div>
             <h3>Follow Us On <span>Instagram</span></h3>
             <p>Get inspired by our latest collections and happy customers.</p>
-            <a className="instagramHandle" href="https://instagram.com/elegant.beads" target="_blank" rel="noopener noreferrer">
-              Follow Us @elegant.beads
+            <a className="instagramHandle" href="https://www.instagram.com/stainless_sparkle01?igsh=Nm90M3I3cDJ5MGJ4" target="_blank" rel="noopener noreferrer">
+              Follow Us @stainless_sparkle01
             </a>
           </div>
           <div className="instagramGrid">
