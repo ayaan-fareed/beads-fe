@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { strapiAPI } from '../services/strapi.js';
 import { products as mockProducts } from '../data/products.js';
 
@@ -23,6 +23,7 @@ export function useProducts() {
   const [loading, setLoading] = useState(false); // Not loading since we have mock data
   const [error, setError] = useState(null);
   const [usingMockData, setUsingMockData] = useState(true);
+  const abortControllerRef = useRef(null);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -70,9 +71,17 @@ export function useProducts() {
     }
 
     // Start API call after component mounts, but don't block UI
-    const timeoutId = setTimeout(fetchProducts, 100);
+    const timeoutId = setTimeout(() => {
+      abortControllerRef.current = new AbortController();
+      fetchProducts();
+    }, 100);
     
-    return () => clearTimeout(timeoutId);
+    return () => {
+      clearTimeout(timeoutId);
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
   }, []);
 
   return { products, loading, error, usingMockData, refetch: () => fetchProducts() };

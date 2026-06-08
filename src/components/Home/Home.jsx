@@ -91,7 +91,17 @@ export default function Home({ onNavigate }) {
       <section className="promise">
         <div className="promiseInner">
           <div className="promiseImg">
-            <img src="/ourQuality.png" alt="Quality Stainless Steel Jewellery" />
+            <img 
+              src="/ourQuality.png" 
+              alt="Quality Stainless Steel Jewellery" 
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextElementSibling.style.display = 'flex';
+              }}
+            />
+            <div className="promiseImgPlaceholder" style={{ display: 'none' }}>
+              ✨
+            </div>
           </div>
 
           <div className="promiseText">
@@ -198,7 +208,7 @@ export default function Home({ onNavigate }) {
             </div>
             <h3>Follow Us On <span>Instagram</span></h3>
             <p>Get inspired by our latest collections and happy customers.</p>
-            <a className="instagramHandle" href="https://instagram.com/elegant.beads" target="_blank" rel="noreferrer">
+            <a className="instagramHandle" href="https://instagram.com/elegant.beads" target="_blank" rel="noopener noreferrer">
               Follow Us @elegant.beads
             </a>
           </div>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef } from 'react';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Home from './components/Home/Home.jsx';
 import Shop from './components/Shop/Shop.jsx';
@@ -13,6 +13,7 @@ export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [toast, setToast] = useState('');
+  const toastTimerRef = useRef(null);
   const { products, loading, error } = useProducts();
 
   const total = useMemo(() => cart.reduce((sum, item) => sum + item.price, 0), [cart]);
@@ -24,8 +25,10 @@ export default function App() {
 
   const showToast = (message) => {
     setToast(message);
-    window.clearTimeout(showToast.timer);
-    showToast.timer = window.setTimeout(() => setToast(''), 2400);
+    if (toastTimerRef.current) {
+      window.clearTimeout(toastTimerRef.current);
+    }
+    toastTimerRef.current = window.setTimeout(() => setToast(''), 2400);
   };
 
   const addToCart = (productId) => {
