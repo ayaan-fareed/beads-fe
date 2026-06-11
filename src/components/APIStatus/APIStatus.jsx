@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { strapiAPI } from '../../services/strapi.js';
+import { firebaseAPI } from '../../services/firebase.js';
 import './APIStatus.css';
 
 export default function APIStatus() {
@@ -12,32 +12,32 @@ export default function APIStatus() {
         setStatus('checking');
         
         // Test basic connection
-        const connectionTest = await strapiAPI.testConnection();
+        const connectionTest = await firebaseAPI.testConnection();
         
         if (!connectionTest.success) {
           setStatus('offline');
-          setDetails({ error: 'Cannot connect to Strapi server' });
+          setDetails({ error: 'Cannot connect to Firebase' });
           return;
         }
 
         // Test products endpoint
-        const products = await strapiAPI.getProducts();
+        const products = await firebaseAPI.getProducts();
         
         if (products.length === 0) {
           setStatus('no-data');
           setDetails({ 
-            message: 'Strapi Cloud is connected but no articles accessible',
+            message: 'Firebase is connected but no products accessible',
             suggestions: [
-              'Go to your Strapi Cloud admin panel',
-              'Navigate to Settings > Roles > Public',
-              'Enable Article permissions (find and findOne actions)',
-              'Make sure articles are published',
-              'Check if API token has correct permissions for Strapi Cloud'
+              'Go to your Firebase Console',
+              'Navigate to Firestore Database',
+              'Create a "products" collection',
+              'Add sample product documents',
+              'Check Firestore rules allow read access'
             ]
           });
         } else {
           setStatus('connected');
-          setDetails({ productCount: products.length, dataType: 'articles' });
+          setDetails({ productCount: products.length, dataType: 'products' });
         }
       } catch (error) {
         setStatus('error');
@@ -62,9 +62,9 @@ export default function APIStatus() {
   const getStatusMessage = () => {
     switch (status) {
       case 'checking': return 'Checking API connection...';
-      case 'connected': return `Connected! Found ${details.productCount} ${details.dataType || 'articles'}`;
-      case 'no-data': return 'Strapi Cloud connected but no articles accessible';
-      case 'offline': return 'Cannot connect to Strapi';
+      case 'connected': return `Connected! Found ${details.productCount} ${details.dataType || 'products'}`;
+      case 'no-data': return 'Firebase connected but no products accessible';
+      case 'offline': return 'Cannot connect to Firebase';
       case 'error': return 'API Error';
       default: return 'Unknown status';
     }

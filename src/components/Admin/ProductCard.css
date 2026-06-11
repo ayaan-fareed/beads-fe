@@ -1,0 +1,196 @@
+.adminProductCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e1e5e9;
+}
+
+.adminProductCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.cardHeader {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.productIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  border: 1px solid #e1e5e9;
+  flex-shrink: 0;
+}
+
+.productIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.productInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.productName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.productCategory {
+  display: inline-block;
+  background: #e9ecef;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.productBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+}
+
+.badgehot {
+  background: #ff6b6b;
+  color: white;
+}
+
+.badgenew {
+  background: #51cf66;
+  color: white;
+}
+
+.badgesale {
+  background: #ff922b;
+  color: white;
+}
+
+.cardBody {
+  padding: 20px;
+}
+
+.productDescription {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.productPrice {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.productPrice strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e1e5e9;
+}
+
+.editBtn,
+.deleteBtn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.editBtn {
+  background: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+.editBtn:hover {
+  background: #bbdefb;
+  color: #1565c0;
+}
+
+.deleteBtn {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.deleteBtn:hover {
+  background: #ffcdd2;
+  color: #b71c1c;
+}
+
+@media (max-width: 768px) {
+  .cardHeader {
+    padding: 16px;
+  }
+  
+  .productIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .productName {
+    font-size: 1rem;
+  }
+  
+  .cardBody {
+    padding: 16px;
+  }
+  
+  .cardActions {
+    padding: 12px 16px;
+    flex-direction: column;
+  }
+  
+  .editBtn,
+  .deleteBtn {
+    padding: 12px;
+  }
+}

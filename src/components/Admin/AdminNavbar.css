@@ -1,0 +1,101 @@
+.adminNavbar {
+  background: white;
+  border-bottom: 1px solid #e1e5e9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+  max-width: 100%;
+}
+
+.navbarBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbarBrand h1 {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.adminBadge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.navbarActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.backToSiteBtn,
+.logoutBtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.backToSiteBtn {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #e1e5e9;
+}
+
+.backToSiteBtn:hover {
+  background: #e9ecef;
+  color: #333;
+}
+
+.logoutBtn {
+  background: #fee;
+  color: #c33;
+  border: 1px solid #fcc;
+}
+
+.logoutBtn:hover {
+  background: #fcc;
+  color: #b33;
+}
+
+@media (max-width: 768px) {
+  .navbarContainer {
+    padding: 0 16px;
+  }
+  
+  .navbarBrand h1 {
+    font-size: 1.2rem;
+  }
+  
+  .navbarActions {
+    gap: 8px;
+  }
+  
+  .backToSiteBtn,
+  .logoutBtn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
