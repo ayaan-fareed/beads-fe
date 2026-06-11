@@ -5,6 +5,7 @@ import Shop from './components/Shop/Shop.jsx';
 import About from './components/About/About.jsx';
 import CartDrawer from './components/CartDrawer/CartDrawer.jsx';
 import Toast from './components/Toast/Toast.jsx';
+import OrderForm from './components/OrderForm/OrderForm.jsx';
 import AdminDashboard from './components/Admin/AdminDashboard.jsx';
 import { PHONE } from './data/products.js';
 import { useProductsFirebase } from './hooks/useProductsFirebase.js';
@@ -12,6 +13,7 @@ import { useProductsFirebase } from './hooks/useProductsFirebase.js';
 export default function App() {
   const [activePage, setActivePage] = useState('home');
   const [cartOpen, setCartOpen] = useState(false);
+  const [orderFormOpen, setOrderFormOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [toast, setToast] = useState('');
   const toastTimerRef = useRef(null);
@@ -71,6 +73,20 @@ export default function App() {
     window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
 
+  const openOrderForm = () => {
+    setOrderFormOpen(true);
+    setCartOpen(false);
+  };
+
+  const closeOrderForm = () => {
+    setOrderFormOpen(false);
+  };
+
+  const handleOrderSuccess = () => {
+    setCart([]);
+    showToast('🎉 Order placed successfully! We will contact you soon.');
+  };
+
   return (
     <div className="app">
       {activePage === 'admin' ? (
@@ -81,7 +97,8 @@ export default function App() {
           {activePage === 'home' && <Home onNavigate={navigate} />}
           {activePage === 'shop' && <Shop onAddToCart={addToCart} products={products} loading={loading} error={error} />}
           {activePage === 'about' && <About />}
-          <CartDrawer cart={cart} total={total} isOpen={cartOpen} onClose={() => setCartOpen(false)} onRemove={removeFromCart} onOrder={orderOnWhatsApp} />
+          <CartDrawer cart={cart} total={total} isOpen={cartOpen} onClose={() => setCartOpen(false)} onRemove={removeFromCart} onOrder={orderOnWhatsApp} onOrderForm={openOrderForm} />
+          <OrderForm cart={cart} total={total} isOpen={orderFormOpen} onClose={closeOrderForm} onOrderSuccess={handleOrderSuccess} />
           <Toast message={toast} />
         </>
       )}

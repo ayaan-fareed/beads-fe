@@ -1,0 +1,224 @@
+.settingsPanel {
+  max-width: 100%;
+}
+
+.settingsHeader {
+  margin-bottom: 32px;
+}
+
+.settingsHeader h1 {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.settingsHeader p {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.message {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.settingsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.settingsCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e1e5e9;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settingsCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.settingsCard h2 {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 10px 14px;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+  background: white;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.formGroup input:disabled,
+.formGroup select:disabled {
+  background: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.updateBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 8px;
+}
+
+.updateBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.updateBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.dataActions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.actionItem {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e1e5e9;
+}
+
+.actionItem h3 {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.actionItem p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.exportBtn,
+.clearBtn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exportBtn {
+  background: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+.exportBtn:hover {
+  background: #bbdefb;
+  color: #1565c0;
+}
+
+.clearBtn {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.clearBtn:hover {
+  background: #ffcdd2;
+  color: #b71c1c;
+}
+
+@media (max-width: 768px) {
+  .settingsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .settingsCard {
+    padding: 20px;
+  }
+  
+  .settingsCard h2 {
+    font-size: 1.1rem;
+  }
+  
+  .dataActions {
+    gap: 16px;
+  }
+  
+  .actionItem {
+    padding: 16px;
+  }
+}

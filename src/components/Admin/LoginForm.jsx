@@ -1,18 +1,31 @@
 import React, { useState } from 'react';
-import { useAdminAuth } from '../../hooks/useAdminAuth.js';
 import './LoginForm.css';
 
-export default function LoginForm() {
+export default function LoginForm({ onLogin }) {
   const [password, setPassword] = useState('');
-  const { login, loading, error } = useAdminAuth();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login attempt with password:', password);
-    if (password.trim()) {
-      const result = login(password);
-      console.log('Login result:', result);
+    
+    if (!password.trim()) {
+      setError('Please enter a password');
+      return;
     }
+
+    setLoading(true);
+    setError('');
+    
+    const result = onLogin(password);
+    console.log('Login result:', result);
+    
+    if (!result.success) {
+      setError(result.message);
+    }
+    
+    setLoading(false);
   };
 
   return (

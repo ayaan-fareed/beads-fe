@@ -1,5 +1,10 @@
 .productManager {
   max-width: 100%;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(232, 131, 159, 0.1);
 }
 
 .managerHeader {
@@ -8,22 +13,22 @@
   align-items: center;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 2px solid #e1e5e9;
+  border-bottom: 2px solid var(--line);
 }
 
 .managerHeader h1 {
-  color: #333;
+  color: var(--text);
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
 }
 
 .addProductBtn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--pink-dark);
   color: white;
   border: none;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 999px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
@@ -35,17 +40,17 @@
 
 .addProductBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 20px rgba(196, 90, 122, 0.3);
 }
 
 .errorMessage {
-  background-color: #fee;
-  color: #c33;
+  background-color: var(--pink-light);
+  color: var(--pink-dark);
   padding: 16px;
   border-radius: 8px;
   margin-bottom: 24px;
   font-size: 0.9rem;
-  border: 1px solid #fcc;
+  border: 1px solid var(--line);
 }
 
 .filtersSection {
@@ -63,16 +68,18 @@
 .searchInput {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--line);
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s ease;
   box-sizing: border-box;
+  background: var(--white);
+  color: var(--text);
 }
 
 .searchInput:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--pink-deep);
 }
 
 .categoryFilter {
@@ -145,7 +152,7 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: 60px 20px;
-  color: #666;
+  color: var(--muted);
 }
 
 .emptyState p {
@@ -158,6 +165,11 @@
     flex-direction: column;
     gap: 16px;
     align-items: stretch;
+  }
+  
+  .managerHeader h1 {
+    font-size: 1.5rem;
+    text-align: center;
   }
   
   .filtersSection {
@@ -176,5 +188,41 @@
   
   .productsGrid {
     grid-template-columns: 1fr;
+  }
+  
+  .productCard {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .productManager {
+    padding: 16px;
+  }
+  
+  .managerHeader h1 {
+    font-size: 1.3rem;
+  }
+  
+  .addProductBtn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .productCard {
+    padding: 12px;
+  }
+  
+  .productImage {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .productInfo h3 {
+    font-size: 1rem;
+  }
+  
+  .productPrice {
+    font-size: 1.1rem;
   }
 }

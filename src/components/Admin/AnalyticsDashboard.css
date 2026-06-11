@@ -1,0 +1,400 @@
+.analyticsDashboard {
+  max-width: 100%;
+}
+
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.dashboardHeader h1 {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.timeRangeSelector {
+  min-width: 150px;
+}
+
+.timeRangeSelect {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.timeRangeSelect:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.statCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e1e5e9;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.statCard.primary {
+  border-left: 4px solid #667eea;
+}
+
+.statCard.success {
+  border-left: 4px solid #51cf66;
+}
+
+.statCard.warning {
+  border-left: 4px solid #ff922b;
+}
+
+.statCard.info {
+  border-left: 4px solid #339af0;
+}
+
+.statIcon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statContent h3 {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+
+.statValue {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.statChange {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.statChange.positive {
+  color: #51cf66;
+}
+
+.statChange.negative {
+  color: #ff6b6b;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.chartCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e1e5e9;
+}
+
+.chartCard h3 {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.chartContent {
+  height: 250px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.chartContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.chartBars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  gap: 12px;
+  padding: 0 8px;
+}
+
+.chartBar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.bar {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px 4px 0 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.bar:hover {
+  opacity: 0.8;
+}
+
+.barLabel {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.categoryChart {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 100%;
+}
+
+.pieChartContainer {
+  flex-shrink: 0;
+}
+
+.pieChart {
+  width: 200px;
+  height: 200px;
+}
+
+.categoryLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.tablesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.tableCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e1e5e9;
+}
+
+.tableCard h3 {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.tableContent {
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  background: #f8f9fa;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.tableHeader > div {
+  padding: 0 4px;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f3f4;
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background: #f8f9fa;
+}
+
+.tableRow > div {
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+.productName {
+  font-weight: 500;
+  color: #333;
+}
+
+.productSales {
+  color: #666;
+  font-weight: 500;
+}
+
+.productRevenue {
+  font-weight: 600;
+  color: #333;
+}
+
+.orderId {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.customerName {
+  font-weight: 500;
+  color: #333;
+}
+
+.orderAmount {
+  font-weight: 600;
+  color: #333;
+}
+
+.orderStatus {
+  display: flex;
+  align-items: center;
+}
+
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusBadge.pending {
+  background: #ff922b;
+  color: white;
+}
+
+.statusBadge.confirmed {
+  background: #51cf66;
+  color: white;
+}
+
+.statusBadge.delivered {
+  background: #20c997;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .dashboardHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tablesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chartContent {
+    height: 200px;
+  }
+  
+  .chartBars {
+    height: 150px;
+  }
+  
+  .categoryChart {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  
+  .tableHeader > div,
+  .tableRow > div {
+    padding: 4px 0;
+  }
+  
+  .statCard {
+    padding: 20px;
+  }
+  
+  .statIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+  
+  .statValue {
+    font-size: 1.5rem;
+  }
+}

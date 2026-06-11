@@ -1,42 +1,71 @@
-import React from 'react';
-import { useAdminAuth } from '../../hooks/useAdminAuth.js';
+import React, { useState } from 'react';
 import AdminNavbar from './AdminNavbar.jsx';
+import ProductManager from './ProductManager.jsx';
+import OrderManager from './OrderManager.jsx';
+import AnalyticsDashboard from './AnalyticsDashboard.jsx';
+import SettingsPanel from './SettingsPanel.jsx';
 import './AdminLayout.css';
 
-export default function AdminLayout({ children, onNavigate }) {
-  const { logout } = useAdminAuth();
+export default function AdminLayout({ children, onNavigate, onLogout }) {
+  const [activeSection, setActiveSection] = useState('products');
 
-  const handleLogout = () => {
-    logout();
-    onNavigate('home');
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+  };
+
+  const renderActiveSection = () => {
+    switch (activeSection) {
+      case 'products':
+        return <ProductManager />;
+      case 'orders':
+        return <OrderManager />;
+      case 'analytics':
+        return <AnalyticsDashboard />;
+      case 'settings':
+        return <SettingsPanel />;
+      default:
+        return <ProductManager />;
+    }
   };
 
   return (
     <div className="adminLayout">
-      <AdminNavbar onLogout={handleLogout} onNavigate={onNavigate} />
+      <AdminNavbar onLogout={onLogout} onNavigate={onNavigate} />
       <div className="adminContainer">
         <aside className="adminSidebar">
           <nav className="sidebarNav">
             <ul className="navList">
               <li className="navItem">
-                <a href="#products" className="navLink active">
+                <button 
+                  className={`navLink ${activeSection === 'products' ? 'active' : ''}`}
+                  onClick={() => handleNavClick('products')}
+                >
                   📦 Products
-                </a>
+                </button>
               </li>
               <li className="navItem">
-                <a href="#orders" className="navLink">
+                <button 
+                  className={`navLink ${activeSection === 'orders' ? 'active' : ''}`}
+                  onClick={() => handleNavClick('orders')}
+                >
                   🛍️ Orders
-                </a>
+                </button>
               </li>
               <li className="navItem">
-                <a href="#analytics" className="navLink">
+                <button 
+                  className={`navLink ${activeSection === 'analytics' ? 'active' : ''}`}
+                  onClick={() => handleNavClick('analytics')}
+                >
                   📊 Analytics
-                </a>
+                </button>
               </li>
               <li className="navItem">
-                <a href="#settings" className="navLink">
+                <button 
+                  className={`navLink ${activeSection === 'settings' ? 'active' : ''}`}
+                  onClick={() => handleNavClick('settings')}
+                >
                   ⚙️ Settings
-                </a>
+                </button>
               </li>
             </ul>
           </nav>
@@ -44,7 +73,7 @@ export default function AdminLayout({ children, onNavigate }) {
         
         <main className="adminMain">
           <div className="adminContent">
-            {children}
+            {renderActiveSection()}
           </div>
         </main>
       </div>

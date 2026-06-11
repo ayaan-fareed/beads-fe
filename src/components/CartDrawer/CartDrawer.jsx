@@ -8,7 +8,7 @@ function WhatsAppIcon() {
   );
 }
 
-export default function CartDrawer({ cart, total, isOpen, onClose, onRemove, onOrder }) {
+export default function CartDrawer({ cart, total, isOpen, onClose, onRemove, onOrder, onOrderForm }) {
   return (
     <>
       <div className={`cartOverlay ${isOpen ? 'open' : ''}`} onClick={onClose} />
@@ -48,8 +48,9 @@ export default function CartDrawer({ cart, total, isOpen, onClose, onRemove, onO
         {!!cart.length && (
           <div className="cartBottom">
             <div className="cartTotal"><span>Total</span><strong>Rs. {total.toLocaleString()}</strong></div>
+            <button className="orderFormBtn" onClick={onOrderForm}>📝 Complete Order</button>
             <button className="whatsappBtn" onClick={onOrder}><WhatsAppIcon /> Order via WhatsApp</button>
-            <p className="whatsappNote">WhatsApp will open with your order details 📱</p>
+            <p className="orderNote">Choose your preferred ordering method</p>
           </div>
         )}
       </aside>

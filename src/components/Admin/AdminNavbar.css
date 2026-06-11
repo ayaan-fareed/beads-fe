@@ -1,7 +1,7 @@
 .adminNavbar {
-  background: white;
-  border-bottom: 1px solid #e1e5e9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(232, 131, 159, 0.1);
 }
 
 .navbarContainer {
@@ -20,14 +20,14 @@
 }
 
 .navbarBrand h1 {
-  color: #333;
+  color: var(--text);
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
 }
 
 .adminBadge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--pink-deep);
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -59,25 +59,28 @@
 }
 
 .backToSiteBtn {
-  background: #f8f9fa;
-  color: #666;
-  border: 1px solid #e1e5e9;
+  background: transparent;
+  color: var(--muted);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
 }
 
 .backToSiteBtn:hover {
-  background: #e9ecef;
-  color: #333;
+  background: var(--pink-light);
+  color: var(--text);
+  transform: translateY(-1px);
 }
 
 .logoutBtn {
-  background: #fee;
-  color: #c33;
-  border: 1px solid #fcc;
+  background: var(--pink-dark);
+  color: white;
+  border: none;
+  border-radius: 999px;
 }
 
 .logoutBtn:hover {
-  background: #fcc;
-  color: #b33;
+  background: #a8445f;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
