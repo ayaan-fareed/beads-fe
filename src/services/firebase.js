@@ -4,12 +4,12 @@ import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDbdkwLwUk60oZ1IDO4acsawLQ7eoTfFNQ",
-  authDomain: "stainless-sparkle.firebaseapp.com",
-  projectId: "stainless-sparkle",
-  storageBucket: "stainless-sparkle.firebasestorage.app",
-  messagingSenderId: "148591472230",
-  appId: "1:148591472230:web:cd08f4d4216886f85807a7"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
