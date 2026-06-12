@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firebaseAPI } from '../../services/firebase.js';
-import './AnalyticsDashboard.css';
+import './AdminModern.css';
 
 export default function AnalyticsDashboard() {
   const [analyticsData, setAnalyticsData] = useState(null);

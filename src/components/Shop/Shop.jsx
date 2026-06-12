@@ -11,7 +11,7 @@ export default function Shop({ onAddToCart, products, loading, error }) {
   const [filter, setFilter] = useState('All');
   const filteredProducts = useMemo(() => {
     if (filter === 'All') return products;
-    return products.filter((item) => item.category === filter);
+    return products.filter((item) => item.tag === filter);
   }, [filter, products]);
 
   return (

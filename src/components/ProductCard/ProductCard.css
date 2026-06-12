@@ -1,1 +1,138 @@
-.productCard{background:white;border-radius:20px;overflow:hidden;border:1px solid var(--line);transition:.22s ease;box-shadow:0 8px 24px rgba(154,102,117,.06)}.productCard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#ecc1cf}.productImage{height:190px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,#fdf0f4,#fff9fb);overflow:hidden}.productImage img{width:100%;height:100%;object-fit:cover}.productBody{padding:1rem 1.1rem 1.15rem}.productTop{display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem}.productTag{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:800}.badge{font-size:.62rem;padding:.18rem .5rem;border-radius:999px;font-weight:800}.badgeNew{background:#fff0e8;color:var(--gold)}.badgeHot{background:#fdf0f4;color:var(--pink-dark)}.productCard h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:.25rem;color:var(--text)}.productCard p{font-size:.78rem;color:var(--muted);line-height:1.55;margin-bottom:.95rem;min-height:48px}.productFooter{display:flex;align-items:center;justify-content:space-between;gap:.65rem}.price{font-weight:800;font-size:1rem;color:var(--pink-dark);white-space:nowrap}.addBtn{background:var(--pink-dark);color:white;border-radius:999px;padding:.48rem .9rem;font-size:.77rem;font-weight:700;transition:.2s ease;white-space:nowrap}.addBtn:hover{background:#a8445f;transform:translateY(-1px)}@media(max-width:480px){.productImage{height:170px}.productFooter{align-items:flex-start;flex-direction:column}.addBtn{width:100%}}
+/* Product Card Component Styling */
+
+/* Main Card Container */
+.productCard {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: 0.22s ease;
+  box-shadow: 0 8px 24px rgba(154, 102, 117, 0.06);
+}
+
+.productCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: #ecc1cf;
+}
+
+/* Product Image Section */
+.productImage {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, #fdf0f4, #fff9fb);
+  overflow: hidden;
+}
+
+.productImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Body Content */
+.productBody {
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+/* Top Section with Tag and Badge */
+.productTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.productTag {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+/* Badge Styling */
+.badge {
+  font-size: 0.62rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.badgeNew {
+  background: #fff0e8;
+  color: var(--gold);
+}
+
+.badgeHot {
+  background: #fdf0f4;
+  color: var(--pink-dark);
+}
+
+/* Product Title */
+.productCard h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+
+/* Product Description */
+.productCard p {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 0.95rem;
+  min-height: 48px;
+}
+
+/* Footer Section with Price and Button */
+.productFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.price {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--pink-dark);
+  white-space: nowrap;
+}
+
+.addBtn {
+  background: var(--pink-dark);
+  color: white;
+  border-radius: 999px;
+  padding: 0.48rem 0.9rem;
+  font-size: 0.77rem;
+  font-weight: 700;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+
+.addBtn:hover {
+  background: #a8445f;
+  transform: translateY(-1px);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 480px) {
+  .productImage {
+    height: 170px;
+  }
+  
+  .productFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+  .addBtn {
+    width: 100%;
+  }
+}

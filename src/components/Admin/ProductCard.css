@@ -1,43 +1,45 @@
 .adminProductCard {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid #e1e5e9;
+  border: 1px solid var(--line);
+  transition: 0.22s ease;
+  box-shadow: 0 8px 24px rgba(154, 102, 117, 0.06);
 }
 
 .adminProductCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: #ecc1cf;
 }
 
 .cardHeader {
   display: flex;
   gap: 16px;
-  padding: 20px;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e1e5e9;
+  padding: 1rem 1.1rem 1.15rem;
+  background: linear-gradient(135deg, #fdf0f4, #fff9fb);
+  border-bottom: 1px solid var(--line);
 }
 
 .productIcon {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  border: 1px solid #e1e5e9;
+  font-size: 2.5rem;
+  border: 1px solid var(--line);
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .productIcon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .productInfo {
@@ -46,97 +48,92 @@
 }
 
 .productName {
-  font-size: 1.1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
-  margin: 0 0 4px 0;
+  margin: 0 0 0.25rem 0;
+  color: var(--text);
   line-height: 1.3;
 }
 
 .productCategory {
-  display: inline-block;
-  background: #e9ecef;
-  color: #666;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  display: inline-block;
 }
 
 .productBadge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 0.62rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 800;
   margin-left: 8px;
 }
 
 .badgehot {
-  background: #ff6b6b;
-  color: white;
+  background: #fdf0f4;
+  color: var(--pink-dark);
 }
 
 .badgenew {
-  background: #51cf66;
-  color: white;
+  background: #fff0e8;
+  color: var(--gold);
 }
 
 .badgesale {
-  background: #ff922b;
-  color: white;
+  background: #e8f5e8;
+  color: #2d7a2d;
 }
 
 .cardBody {
-  padding: 20px;
+  padding: 1rem 1.1rem 1.15rem;
 }
 
 .productDescription {
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0 0 16px 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0 0 0.95rem 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 48px;
 }
 
 .productPrice {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 0;
-}
-
-.productPrice strong {
-  color: #667eea;
-  font-weight: 600;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--pink-dark);
+  margin-bottom: 0.95rem;
+  white-space: nowrap;
 }
 
 .cardActions {
   display: flex;
-  gap: 8px;
-  padding: 16px 20px;
-  background: #f8f9fa;
-  border-top: 1px solid #e1e5e9;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 1rem 1.1rem 1.15rem;
+  background: linear-gradient(135deg, #fdf0f4, #fff9fb);
+  border-top: 1px solid var(--line);
 }
 
 .editBtn,
 .deleteBtn {
-  flex: 1;
-  padding: 10px;
+  border-radius: 999px;
+  padding: 0.48rem 0.9rem;
+  font-size: 0.77rem;
+  font-weight: 700;
+  transition: 0.2s ease;
+  white-space: nowrap;
   border: none;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,28 +143,62 @@
 .editBtn {
   background: #e3f2fd;
   color: #1976d2;
-  border: 1px solid #bbdefb;
 }
 
 .editBtn:hover {
   background: #bbdefb;
-  color: #1565c0;
+  transform: translateY(-1px);
 }
 
 .deleteBtn {
   background: #ffebee;
   color: #c62828;
-  border: 1px solid #ffcdd2;
 }
 
 .deleteBtn:hover {
   background: #ffcdd2;
-  color: #b71c1c;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
   .cardHeader {
-    padding: 16px;
+    padding: 0.8rem;
+    gap: 12px;
+  }
+  
+  .productIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .productName {
+    font-size: 1rem;
+  }
+  
+  .cardBody {
+    padding: 0.8rem;
+  }
+  
+  .productDescription {
+    font-size: 0.7rem;
+  }
+  
+  .cardActions {
+    padding: 0.8rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .editBtn,
+  .deleteBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardHeader {
+    padding: 0.6rem;
   }
   
   .productIcon {
@@ -177,20 +208,14 @@
   }
   
   .productName {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .cardBody {
-    padding: 16px;
+    padding: 0.6rem;
   }
   
   .cardActions {
-    padding: 12px 16px;
-    flex-direction: column;
-  }
-  
-  .editBtn,
-  .deleteBtn {
-    padding: 12px;
+    padding: 0.6rem;
   }
 }
