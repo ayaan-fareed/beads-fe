@@ -3,17 +3,17 @@ import { useAdminAuth } from '../../hooks/useAdminAuth.js';
 import LoginForm from './LoginForm.jsx';
 
 export default function AuthGuard({ children }) {
-  const { isAuthenticated, loading, login } = useAdminAuth();
+  const { isAuthenticated, loading, user } = useAdminAuth();
 
   useEffect(() => {
-    console.log('AuthGuard: State changed - isAuthenticated:', isAuthenticated, 'loading:', loading);
-  }, [isAuthenticated, loading]);
+    console.log('AuthGuard: State changed - isAuthenticated:', isAuthenticated, 'loading:', loading, 'user:', user);
+  }, [isAuthenticated, loading, user]);
 
   if (loading) {
     return (
       <div className="adminLoading">
         <div className="loadingSpinner"></div>
-        <p>Loading...</p>
+        <p>Loading authentication...</p>
       </div>
     );
   }
@@ -23,6 +23,6 @@ export default function AuthGuard({ children }) {
     return <LoginForm />;
   }
 
-  console.log('AuthGuard: Showing protected content');
+  console.log('AuthGuard: Showing protected content for user:', user?.email);
   return children;
 }

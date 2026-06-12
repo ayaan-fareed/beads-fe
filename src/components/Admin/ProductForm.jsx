@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ProductForm.css';
 
 const categories = ['Necklace', 'Earrings', 'Ring', 'Bracelet'];
-const badges = ['', 'hot', 'new', 'sale'];
+const badges = ['', 'hot', 'new', 'sale', 'best'];
 const icons = ['📿', '💎', '💍', '✨', '🌸', '💗', '🪬', '👂', '🔮', '🎀'];
 
 export default function ProductForm({ product, onSubmit, onCancel }) {
@@ -180,7 +180,7 @@ export default function ProductForm({ product, onSubmit, onCancel }) {
             >
               {badges.map(badge => (
                 <option key={badge} value={badge}>
-                  {badge ? badge.charAt(0).toUpperCase() + badge.slice(1) : 'No Badge'}
+                  {badge === 'best' ? 'Best Seller' : badge ? badge.charAt(0).toUpperCase() + badge.slice(1) : 'No Badge'}
                 </option>
               ))}
             </select>

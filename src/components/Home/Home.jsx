@@ -1,4 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import Footer from '../Footer/Footer.jsx';
+import { firebaseAPI } from '../../services/firebase.js';
+import ProductCard from '../ProductCard/ProductCard.jsx';
 import './Home_new.css';
 
 // Image imports for Vercel deployment
@@ -17,13 +20,6 @@ const features = [
   { icon: '💬', title: 'WhatsApp Support', text: 'Order directly and quickly on WhatsApp.' },
 ];
 
-const bestSellers = [
-  { id: 1, name: 'Stainless Steel Diamond Cut Necklace', tag: 'Necklace', badge: 'hot', price: 3500, rating: 4.8, icon: '📿' },
-  { id: 2, name: 'Polished Steel Link Bracelet', tag: 'Bracelet', badge: 'best', price: 2800, rating: 4.9, icon: '🪬' },
-  { id: 3, name: 'Surgical Steel Hoop Earrings', tag: 'Earrings', badge: 'new', price: 2200, rating: 4.9, icon: '💎' },
-  { id: 4, name: 'Brushed Steel Crystal Ring', tag: 'Ring', badge: 'hot', price: 4500, rating: 4.8, icon: '💍' },
-];
-
 const shippingInfo = [
   { icon: '🚚', title: 'Nationwide Delivery', desc: 'Fast delivery across all cities in Pakistan' },
   { icon: '📦', title: 'Secure Packaging', desc: 'Carefully packed to prevent damage during transit' },
@@ -40,24 +36,31 @@ const stats = [
 
 const instaEmojis = ['📿', '💍', '💎', '🪬', '✨'];
 
-function StarRating({ rating }) {
-  const full = Math.floor(rating);
-  return (
-    <span className="stars">
-      {'★'.repeat(full)}{'☆'.repeat(5 - full)}
-    </span>
-  );
-}
-
-function BadgePill({ badge }) {
-  if (!badge) return null;
-  if (badge === 'hot') return <span className="badgeHot">🔥 HOT</span>;
-  if (badge === 'new') return <span className="badgeNew">NEW</span>;
-  if (badge === 'best') return <span className="badgeBest">BEST SELLER</span>;
-  return null;
-}
 
 export default function Home({ onNavigate }) {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [bestSellers, setBestSellers] = useState([]);
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
+  const loadProducts = async () => {
+    try {
+      setLoading(true);
+      const firebaseProducts = await firebaseAPI.getProducts();
+      setProducts(firebaseProducts);
+      
+      // Filter best seller products
+      const bestSellerProducts = firebaseProducts.filter(product => product.badge === 'best');
+      setBestSellers(bestSellerProducts);
+    } catch (error) {
+      console.error('Failed to load products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <main>
       {/* ── ANNOUNCEMENT BAR ── */}
@@ -150,33 +153,31 @@ export default function Home({ onNavigate }) {
           </button>
         </div>
 
-        <div className="productsRow">
-          {bestSellers.map((p) => (
-            <div className="productCard" key={p.id}>
-              <div className="productImgWrap">
-                <div className="productImgPlaceholder">{p.icon}</div>
-                <button className="wishlistBtn" title="Wishlist">🤍</button>
-              </div>
-              <div className="productBody">
-                <div className="productMeta">
-                  <span className="productTag">{p.tag}</span>
-                  <BadgePill badge={p.badge} />
-                </div>
-                <div className="productName">{p.name}</div>
-                <div className="productRating">
-                  <StarRating rating={p.rating} />
-                  <span className="ratingVal">({p.rating})</span>
-                </div>
-                <div className="productFooter">
-                  <span className="productPrice">Rs. {p.price.toLocaleString()}</span>
-                  <button className="addToCartBtn" onClick={() => onNavigate('shop')}>
-                    + Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {loading ? (
+          <div className="loadingState">
+            <div className="loadingSpinner"></div>
+            <p>Loading best sellers...</p>
+          </div>
+        ) : bestSellers.length === 0 ? (
+          <div className="emptyState">
+            <p>No best seller products available yet.</p>
+          </div>
+        ) : (
+          <div className="productsRow">
+            {bestSellers.map((p) => (
+              <ProductCard 
+                key={p.uid} 
+                product={{
+                  ...p,
+                  tag: p.category,
+                  desc: '',
+                  id: p.uid
+                }} 
+                onAddToCart={() => onNavigate('shop')} 
+              />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* ── SHIPPING INFO ── */}

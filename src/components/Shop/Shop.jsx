@@ -1,13 +1,18 @@
 import { useMemo, useState } from 'react';
-import { categories } from '../../data/products.js';
 import Footer from '../Footer/Footer.jsx';
 import ProductCard from '../ProductCard/ProductCard.jsx';
 import SkeletonCard from '../SkeletonCard/SkeletonCard.jsx';
 import './Shop.css';
 
+// Categories for filtering
+const categories = ['All', 'Necklace', 'Earrings', 'Bracelet', 'Ring'];
+
 export default function Shop({ onAddToCart, products, loading, error }) {
   const [filter, setFilter] = useState('All');
-  const filteredProducts = useMemo(() => filter === 'All' ? products : products.filter((item) => item.tag === filter), [filter, products]);
+  const filteredProducts = useMemo(() => {
+    if (filter === 'All') return products;
+    return products.filter((item) => item.category === filter);
+  }, [filter, products]);
 
   return (
     <main>
@@ -35,8 +40,8 @@ export default function Shop({ onAddToCart, products, loading, error }) {
         {error && <p className="errorMessage">Error loading products: {error}</p>}
         {!loading && !error && (
           filteredProducts.length ? filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
-          )) : <p className="emptyProducts">No products found.</p>
+            <ProductCard key={product.uid} product={product} onAddToCart={onAddToCart} />
+          )) : <p className="emptyProducts">No products found in {filter} category.</p>
         )}
       </section>
       <Footer />

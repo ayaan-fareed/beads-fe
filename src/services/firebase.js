@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, doc, getDoc, addDoc, updateDoc, deleteDoc, setDoc } from 'firebase/firestore';
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -14,6 +15,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 class FirebaseAPI {
   constructor() {
@@ -402,4 +404,39 @@ class FirebaseAPI {
 }
 
 export const firebaseAPI = new FirebaseAPI();
-export { db };
+export { db, auth };
+
+// Firebase Authentication Helper Functions
+export const firebaseAuth = {
+  // Login with email and password
+  async signIn(email, password) {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      return { success: true, user: userCredential.user };
+    } catch (error) {
+      console.error('Firebase Auth Error:', error);
+      return { success: false, error: error.message };
+    }
+  },
+
+  // Logout
+  async signOut() {
+    try {
+      await signOut(auth);
+      return { success: true };
+    } catch (error) {
+      console.error('Firebase Auth Error:', error);
+      return { success: false, error: error.message };
+    }
+  },
+
+  // Get current user
+  getCurrentUser() {
+    return auth.currentUser;
+  },
+
+  // Listen to auth state changes
+  onAuthStateChanged(callback) {
+    return onAuthStateChanged(auth, callback);
+  }
+};

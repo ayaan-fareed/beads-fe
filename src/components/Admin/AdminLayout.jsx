@@ -13,6 +13,16 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
     setActiveSection(section);
   };
 
+  const handleLogout = async () => {
+    // Set session flag to show logout message
+    sessionStorage.setItem('wasLoggedIn', 'true');
+    
+    // Call the logout function passed from AdminDashboard
+    if (onLogout) {
+      await onLogout();
+    }
+  };
+
   const renderActiveSection = () => {
     switch (activeSection) {
       case 'products':
@@ -30,7 +40,7 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
 
   return (
     <div className="adminLayout">
-      <AdminNavbar onLogout={onLogout} onNavigate={onNavigate} />
+      <AdminNavbar onLogout={handleLogout} onNavigate={onNavigate} />
       <div className="adminContainer">
         <aside className="adminSidebar">
           <nav className="sidebarNav">

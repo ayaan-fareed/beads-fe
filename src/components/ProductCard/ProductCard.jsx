@@ -17,7 +17,7 @@ export default function ProductCard({ product, onAddToCart }) {
           {console.log('Product badge:', product.badge, 'Type:', typeof product.badge)}
           {product.badge && (
             <span className={`badge badge${product.badge}`}>
-              {product.badge.toUpperCase()}
+              {product.badge === 'best' ? 'BEST SELLER' : product.badge.toUpperCase()}
             </span>
           )}
         </div>
