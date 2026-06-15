@@ -1,77 +1,68 @@
+/* Table-style product layout */
 .adminProductCard {
   background: white;
-  border-radius: 20px;
-  overflow: hidden;
   border: 1px solid var(--line);
-  transition: 0.22s ease;
-  box-shadow: 0 8px 24px rgba(154, 102, 117, 0.06);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
 }
 
 .adminProductCard:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow);
-  border-color: #ecc1cf;
+  box-shadow: 0 2px 8px rgba(232, 131, 159, 0.1);
 }
 
-.cardHeader {
-  display: flex;
-  gap: 16px;
-  padding: 1rem 1.1rem 1.15rem;
-  background: linear-gradient(135deg, #fdf0f4, #fff9fb);
-  border-bottom: 1px solid var(--line);
+.productRow {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px 100px 180px;
+  align-items: center;
+  padding: clamp(12px, 3vw, 16px);
+  gap: clamp(12px, 3vw, 16px);
 }
 
-.productIcon {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
-  background: white;
+.productImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  background: linear-gradient(135deg, #fdf0f4, #fff9fb);
   border: 1px solid var(--line);
   flex-shrink: 0;
-  overflow: hidden;
 }
 
-.productIcon img {
+.productImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
 }
 
-.productInfo {
-  flex: 1;
-  min-width: 0;
+.placeholderIcon {
+  font-size: 1.5rem;
+  color: var(--muted);
 }
 
 .productName {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
+  min-width: 0;
+}
+
+.productName h4 {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   font-weight: 600;
-  margin: 0 0 0.25rem 0;
   color: var(--text);
+  margin: 0 0 4px 0;
   line-height: 1.3;
 }
 
-.productCategory {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--gold);
-  font-weight: 800;
-  margin-bottom: 0.35rem;
-  display: inline-block;
-}
-
 .productBadge {
-  font-size: 0.62rem;
-  padding: 0.18rem 0.5rem;
-  border-radius: 999px;
-  font-weight: 800;
-  margin-left: 8px;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 4px;
 }
 
 .badgehot {
@@ -89,55 +80,42 @@
   color: #2d7a2d;
 }
 
-.cardBody {
-  padding: 1rem 1.1rem 1.15rem;
+.badgeSOLD {
+  background: #ffebee;
+  color: #c62828;
 }
 
-.productDescription {
-  font-size: 0.78rem;
+.productCategory {
+  font-size: clamp(0.85rem, 2.5vw, 0.9rem);
   color: var(--muted);
-  line-height: 1.55;
-  margin: 0 0 0.95rem 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 48px;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 
 .productPrice {
-  font-weight: 800;
-  font-size: 1rem;
-  color: var(--pink-dark);
-  margin-bottom: 0.95rem;
-  white-space: nowrap;
-}
-
-.cardActions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.65rem;
-  padding: 1rem 1.1rem 1.15rem;
-  background: linear-gradient(135deg, #fdf0f4, #fff9fb);
-  border-top: 1px solid var(--line);
-}
-
-.editBtn,
-.deleteBtn {
-  border-radius: 999px;
-  padding: 0.48rem 0.9rem;
-  font-size: 0.77rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   font-weight: 700;
-  transition: 0.2s ease;
-  white-space: nowrap;
+  color: var(--pink-dark);
+}
+
+.productActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.actionBtn {
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
+  gap: 4px;
+  white-space: nowrap;
 }
 
 .editBtn {
@@ -160,62 +138,211 @@
   transform: translateY(-1px);
 }
 
-@media (max-width: 768px) {
-  .cardHeader {
-    padding: 0.8rem;
-    gap: 12px;
+/* Responsive styles for table layout */
+@media (max-width: 1024px) {
+  .productRow {
+    grid-template-columns: 50px 1fr 100px 90px 160px;
+    gap: 10px;
+    padding: 12px;
   }
   
-  .productIcon {
-    width: 60px;
-    height: 60px;
-    font-size: 2rem;
+  .productImage {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .adminProductCard {
+    background: linear-gradient(135deg, #fdf0f4, #fff9fb);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    padding: 16px;
+  }
+  
+  .productRow {
+    display: flex;
+    gap: 16px;
+    padding: 0;
+  }
+  
+  .productImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .productImage img {
+    border-radius: 12px;
+  }
+  
+  .placeholderIcon {
+    font-size: 3rem;
   }
   
   .productName {
-    font-size: 1rem;
-  }
-  
-  .cardBody {
-    padding: 0.8rem;
-  }
-  
-  .productDescription {
-    font-size: 0.7rem;
-  }
-  
-  .cardActions {
-    padding: 0.8rem;
+    flex: 1;
+    display: flex;
     flex-direction: column;
     gap: 8px;
   }
   
-  .editBtn,
+  .productName h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.3;
+  }
+  
+  .productBadge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+  }
+  
+  .badgehot {
+    background: #fdf0f4;
+    color: var(--pink-dark);
+  }
+  
+  .badgenew {
+    background: #fff0e8;
+    color: var(--gold);
+  }
+  
+  .badgesale {
+    background: #e8f5e8;
+    color: #2d7a2d;
+  }
+  
+  .badgeSOLD {
+    background: #ffebee;
+    color: #c62828;
+  }
+  
+  /* Category and badges section */
+  .productCategory {
+    font-size: 0.85rem;
+    color: var(--pink-dark);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 4px 0;
+  }
+  
+  /* Product description */
+  .productDescription {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.4;
+    margin: 4px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .productPrice {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--pink-dark);
+    margin: 8px 0 0 0;
+  }
+  
+  .productActions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    justify-content: flex-end;
+  }
+  
+  .actionBtn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  
+  .editBtn {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  .editBtn:hover {
+    background: #bbdefb;
+    transform: translateY(-1px);
+  }
+  
   .deleteBtn {
-    width: 100%;
+    background: #ffebee;
+    color: #c62828;
+  }
+  
+  .deleteBtn:hover {
+    background: #ffcdd2;
+    transform: translateY(-1px);
   }
 }
 
 @media (max-width: 480px) {
-  .cardHeader {
-    padding: 0.6rem;
+  .adminProductCard {
+    padding: 12px;
+    margin-bottom: 12px;
   }
   
-  .productIcon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+  .productRow {
+    gap: 12px;
   }
   
-  .productName {
-    font-size: 0.9rem;
+  .productImage {
+    width: 100px;
+    height: 100px;
   }
   
-  .cardBody {
-    padding: 0.6rem;
+  .placeholderIcon {
+    font-size: 2.5rem;
   }
   
-  .cardActions {
-    padding: 0.6rem;
+  .productName h4 {
+    font-size: 1rem;
+  }
+  
+  .productCategory {
+    font-size: 0.8rem;
+  }
+  
+  .productBadge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+  
+  .productDescription {
+    font-size: 0.85rem;
+  }
+  
+  .productPrice {
+    font-size: 1.1rem;
+  }
+  
+  .actionBtn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 }
+

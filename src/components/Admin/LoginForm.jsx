@@ -50,7 +50,7 @@ export default function LoginForm({ onLogin }) {
       <div className="loginCard">
         <div className="loginHeader">
           <h1>Admin Login</h1>
-          <p>Elegant Beads Dashboard</p>
+          <p>Stainless Sparkle Dashboard</p>
         </div>
         
         {showLogoutMessage && (

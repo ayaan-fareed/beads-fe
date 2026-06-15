@@ -4,13 +4,23 @@ import ProductManager from './ProductManager.jsx';
 import OrderManager from './OrderManager.jsx';
 import AnalyticsDashboard from './AnalyticsDashboard.jsx';
 import SettingsPanel from './SettingsPanel.jsx';
+import MobileSidebar from './MobileSidebar.jsx';
 import './AdminLayout.css';
 
 export default function AdminLayout({ children, onNavigate, onLogout }) {
   const [activeSection, setActiveSection] = useState('products');
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   const handleNavClick = (section) => {
     setActiveSection(section);
+  };
+
+  const handleMobileSidebarToggle = () => {
+    setIsMobileSidebarOpen(!isMobileSidebarOpen);
+  };
+
+  const handleMobileSidebarClose = () => {
+    setIsMobileSidebarOpen(false);
   };
 
   const handleLogout = async () => {
@@ -40,7 +50,11 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
 
   return (
     <div className="adminLayout">
-      <AdminNavbar onLogout={handleLogout} onNavigate={onNavigate} />
+      <AdminNavbar 
+        onLogout={handleLogout} 
+        onNavigate={onNavigate}
+        onMobileMenuToggle={handleMobileSidebarToggle}
+      />
       <div className="adminContainer">
         <aside className="adminSidebar">
           <nav className="sidebarNav">
@@ -87,6 +101,15 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
           </div>
         </main>
       </div>
+
+      {/* Mobile Sidebar */}
+      <MobileSidebar
+        isOpen={isMobileSidebarOpen}
+        onClose={handleMobileSidebarClose}
+        activeSection={activeSection}
+        onNavigate={handleNavClick}
+        onLogout={handleLogout}
+      />
     </div>
   );
 }

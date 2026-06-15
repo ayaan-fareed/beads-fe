@@ -1,4 +1,4 @@
-# Elegant Beads React
+# Stainless Sparkle React
 
 Converted from the original single HTML/CSS/JavaScript file into a professional Vite + React structure.
 

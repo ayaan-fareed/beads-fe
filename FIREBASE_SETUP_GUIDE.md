@@ -20,7 +20,7 @@
 
 1. In Firebase Console, go to Project Settings (gear icon)
 2. Under "Your apps", click the web icon (`</>`)
-3. Enter your app name (e.g., "Elegant Beads Web App")
+3. Enter your app name (e.g., "Stainless Sparkle Web App")
 4. Click "Register app"
 5. Copy the `firebaseConfig` object - you'll need this for your .env file
 

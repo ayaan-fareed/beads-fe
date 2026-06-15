@@ -12,39 +12,33 @@ export default function ProductCard({ product, onEdit, onDelete }) {
 
   return (
     <div className="adminProductCard">
-      <div className="cardHeader">
-        <div className="productIcon">
+      <div className="productRow">
+        <div className="productImage">
           {product.image ? (
             <img src={product.image} alt={product.name} />
           ) : (
-            product.icon
+            <div className="placeholderIcon">{product.icon}</div>
           )}
         </div>
-        <div className="productInfo">
-          <h3 className="productName">{product.name}</h3>
-          <span className="productCategory">{product.category}</span>
+        <div className="productName">
+          <h4>{product.name}</h4>
+          <div className="productCategory">{product.category}</div>
           {product.badge && (
             <span className={`productBadge badge${product.badge}`}>
               {product.badge.toUpperCase()}
             </span>
           )}
+          <p className="productDescription">{product.description}</p>
+          <div className="productPrice">{formatPrice(product.price)}</div>
+          <div className="productActions">
+            <button className="actionBtn editBtn" onClick={onEdit}>
+              ✏️ Edit
+            </button>
+            <button className="actionBtn deleteBtn" onClick={onDelete}>
+              🗑️ Delete
+            </button>
+          </div>
         </div>
-      </div>
-
-      <div className="cardBody">
-        <p className="productDescription">{product.description}</p>
-        <div className="productPrice">
-          <strong>{formatPrice(product.price)}</strong>
-        </div>
-      </div>
-
-      <div className="cardActions">
-        <button className="editBtn" onClick={onEdit}>
-          ✏️ Edit
-        </button>
-        <button className="deleteBtn" onClick={onDelete}>
-          🗑️ Delete
-        </button>
       </div>
     </div>
   );

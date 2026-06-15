@@ -91,7 +91,7 @@ export default function About() {
       <section className="aboutHero" style={{ backgroundImage: `url(${heroAboutImage})` }}>
         <div className="aboutHeroOverlay">
           <div className="aboutHeroContent">
-            <h1>About Elegant Beads</h1>
+            <h1>About Stainless Sparkle</h1>
             <p>Discover our passion for creating beautiful, timeless stainless steel jewellery that celebrates elegance and craftsmanship.</p>
             <button className="heroStoryBtn" onClick={() => {
               const storySection = document.getElementById('ourStory');
@@ -110,7 +110,7 @@ export default function About() {
             <div className="sectionLabel">OUR STORY</div>
             <h2>Crafting Elegance Since 2020</h2>
             <p>
-              Elegant Beads began with a simple vision: to create beautiful, affordable jewellery that makes every woman feel special. 
+              Stainless Sparkle began with a simple vision: to create beautiful, affordable jewellery that makes every woman feel special. 
               What started as a small passion project has grown into a beloved brand, thanks to our amazing customers.
             </p>
             <p>
@@ -125,7 +125,7 @@ export default function About() {
           <div className="storyImage">
             <img 
               src={storyImage} 
-              alt="Our Story - Elegant Beads" 
+              alt="Our Story - Stainless Sparkle" 
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.nextElementSibling.style.display = 'flex';

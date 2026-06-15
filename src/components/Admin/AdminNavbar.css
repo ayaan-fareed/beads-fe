@@ -13,10 +13,38 @@
   max-width: 100%;
 }
 
+.navbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .navbarBrand {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Mobile Menu Button */
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.mobileMenuBtn:hover {
+  background: var(--pink-light);
+  color: var(--pink-dark);
 }
 
 .navbarBrand h1 {
@@ -88,17 +116,60 @@
     padding: 0 16px;
   }
   
-  .navbarBrand h1 {
-    font-size: 1.2rem;
+  .navbarLeft {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
   
-  .navbarActions {
+  .navbarBrand {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
   }
   
-  .backToSiteBtn,
+  .navbarBrand h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .adminBadge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+  
+  .navbarActions {
+    flex-shrink: 0;
+  }
+  
+  /* Hide logout button on mobile, show only back to site */
   .logoutBtn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    display: none;
+  }
+  
+  .backToSiteBtn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    background: transparent;
+    color: var(--pink-dark);
+    border: 1px solid var(--pink-dark);
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  
+  .backToSiteBtn:hover {
+    background: var(--pink-dark);
+    color: white;
+  }
+  
+  /* Show mobile menu button */
+  .mobileMenuBtn {
+    display: flex;
+    font-size: 1.3rem;
+    width: 36px;
+    height: 36px;
   }
 }

@@ -2,40 +2,47 @@
   max-width: 100%;
   background: var(--white);
   border-radius: 12px;
-  padding: 24px;
+  padding: clamp(16px, 4vw, 24px);
   border: 1px solid var(--line);
   box-shadow: 0 8px 24px rgba(232, 131, 159, 0.1);
+  margin: 0 auto;
 }
 
 .managerHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
+  margin-bottom: clamp(16px, 4vw, 24px);
+  padding-bottom: clamp(12px, 3vw, 16px);
   border-bottom: 2px solid var(--line);
+  flex-wrap: wrap;
+  gap: clamp(12px, 3vw, 16px);
 }
 
 .managerHeader h1 {
   color: var(--text);
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 600;
   margin: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .addProductBtn {
   background: var(--pink-dark);
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: clamp(10px, 2.5vw, 12px) clamp(20px, 4vw, 24px);
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: clamp(6px, 1.5vw, 8px);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .addProductBtn:hover {
@@ -53,28 +60,82 @@
   border: 1px solid var(--line);
 }
 
-.filtersSection {
+/* Summary Cards */
+.summaryCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(16px, 4vw, 24px);
+  margin-bottom: clamp(24px, 6vw, 32px);
+}
+
+.summaryCard {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: clamp(16px, 4vw, 20px);
   display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(12px, 3vw, 16px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summaryCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 131, 159, 0.1);
+}
+
+.cardIcon {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(48px, 12vw, 60px);
+  height: clamp(48px, 12vw, 60px);
+  background: linear-gradient(135deg, #fdf0f4, #fff9fb);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.cardContent h3 {
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  color: var(--muted);
+  font-weight: 500;
+  margin: 0 0 clamp(4px, 1vw, 6px) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cardValue {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--pink-dark);
+  margin: 0;
+  line-height: 1;
+}
+
+.filtersSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(12px, 3vw, 16px);
+  margin-bottom: clamp(16px, 4vw, 24px);
+  align-items: start;
 }
 
 .searchFilter {
-  flex: 1;
-  min-width: 200px;
+  width: 100%;
 }
 
 .searchInput {
   width: 100%;
-  padding: 12px 16px;
+  padding: clamp(10px, 2.5vw, 12px) clamp(14px, 3.5vw, 16px);
   border: 2px solid var(--line);
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   transition: border-color 0.2s ease;
   box-sizing: border-box;
   background: var(--white);
   color: var(--text);
+  min-height: 44px;
 }
 
 .searchInput:focus {
@@ -83,39 +144,42 @@
 }
 
 .categoryFilter {
-  min-width: 200px;
+  width: 100%;
 }
 
 .categorySelect {
   width: 100%;
-  padding: 12px 16px;
-  border: 2px solid #e1e5e9;
+  padding: clamp(10px, 2.5vw, 12px) clamp(14px, 3.5vw, 16px);
+  border: 2px solid var(--line);
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   background: white;
   cursor: pointer;
   transition: border-color 0.2s ease;
   box-sizing: border-box;
+  min-height: 44px;
 }
 
 .categorySelect:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--pink-deep);
 }
 
 .productsStats {
   display: flex;
-  gap: 24px;
-  margin-bottom: 24px;
-  color: #666;
-  font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: clamp(12px, 3vw, 24px);
+  margin-bottom: clamp(16px, 4vw, 24px);
+  color: var(--muted);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
 
 .stat {
-  padding: 8px 12px;
+  padding: clamp(6px, 1.5vw, 8px) clamp(10px, 2.5vw, 12px);
   background: white;
   border-radius: 6px;
-  border: 1px solid #e1e5e9;
+  border: 1px solid var(--line);
+  font-weight: 500;
 }
 
 .loadingState {
@@ -123,18 +187,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
+  padding: clamp(40px, 10vw, 60px) clamp(16px, 4vw, 20px);
   text-align: center;
 }
 
 .loadingSpinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #e1e5e9;
-  border-top: 4px solid #667eea;
+  width: clamp(32px, 8vw, 40px);
+  height: clamp(32px, 8vw, 40px);
+  border: 3px solid var(--line);
+  border-top: 3px solid var(--pink-deep);
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin-bottom: 16px;
+  margin-bottom: clamp(12px, 3vw, 16px);
 }
 
 @keyframes spin {
@@ -142,87 +206,138 @@
   100% { transform: rotate(360deg); }
 }
 
-.productsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
+.productsTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .emptyState {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 60px 20px;
+  padding: clamp(40px, 10vw, 60px) clamp(16px, 4vw, 20px);
   color: var(--muted);
 }
 
 .emptyState p {
-  font-size: 1.1rem;
-  margin-bottom: 24px;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  margin-bottom: clamp(20px, 5vw, 24px);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .summaryCards {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
   .managerHeader {
     flex-direction: column;
-    gap: 16px;
-    align-items: stretch;
-  }
-  
-  .managerHeader h1 {
-    font-size: 1.5rem;
     text-align: center;
   }
   
+  .managerHeader h1 {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  
   .filtersSection {
-    flex-direction: column;
-  }
-  
-  .searchFilter,
-  .categoryFilter {
-    min-width: auto;
-  }
-  
-  .productsStats {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .productsGrid {
     grid-template-columns: 1fr;
   }
   
-  .productCard {
-    padding: 16px;
+  .productsStats {
+    justify-content: center;
+  }
+  
+  .summaryCards {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .productManager {
     padding: 16px;
+    border-radius: 8px;
   }
   
-  .managerHeader h1 {
-    font-size: 1.3rem;
+  .managerHeader {
+    gap: 12px;
   }
   
   .addProductBtn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
   }
   
-  .productCard {
+  .summaryCards {
+    gap: 8px;
+  }
+}
+
+/* Floating Action Button */
+.floatingAddBtn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--pink-dark);
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 300;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(232, 131, 159, 0.3);
+  transition: all 0.3s ease;
+  z-index: 100;
+  display: none; /* Hidden by default, shown only on mobile */
+  align-items: center;
+  justify-content: center;
+}
+
+.floatingAddBtn:hover {
+  background: #a8445f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(232, 131, 159, 0.4);
+}
+
+.floatingAddBtn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  /* Hide the regular add button on mobile */
+  .managerHeader .addProductBtn {
+    display: none;
+  }
+  
+  /* Show floating action button on mobile */
+  .floatingAddBtn {
+    display: flex;
+  }
+}
+
+@media (max-width: 360px) {
+  .productManager {
     padding: 12px;
   }
   
-  .productImage {
-    width: 60px;
-    height: 60px;
+  .filtersSection {
+    gap: 8px;
   }
   
-  .productInfo h3 {
-    font-size: 1rem;
+  .summaryCards {
+    gap: 6px;
   }
   
-  .productPrice {
-    font-size: 1.1rem;
+  .floatingAddBtn {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
   }
 }

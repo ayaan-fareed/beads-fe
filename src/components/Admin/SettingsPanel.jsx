@@ -10,7 +10,7 @@ export default function SettingsPanel() {
   const [messageType, setMessageType] = useState('');
 
   const [siteSettings, setSiteSettings] = useState({
-    siteName: 'Elegant Beads',
+    siteName: 'Stainless Sparkle',
     siteEmail: 'contact@elegantbeads.com',
     sitePhone: '+92 308 916 8530',
     siteAddress: 'Karachi, Pakistan',

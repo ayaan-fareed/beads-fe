@@ -115,6 +115,11 @@ export default function ProductManager() {
     );
   }
 
+  // Calculate statistics for summary cards
+  const totalProducts = products.length;
+  const activeProducts = products.filter(p => p.badge !== 'SOLD OUT').length;
+  const uniqueCategories = [...new Set(products.map(p => p.category))].length;
+
   return (
     <div className="productManager">
       <div className="managerHeader">
@@ -122,6 +127,31 @@ export default function ProductManager() {
         <button className="addProductBtn" onClick={handleAddProduct}>
           ➕ Add New Product
         </button>
+      </div>
+
+      {/* Summary Cards */}
+      <div className="summaryCards">
+        <div className="summaryCard">
+          <div className="cardIcon">📦</div>
+          <div className="cardContent">
+            <h3>Total Products</h3>
+            <p className="cardValue">{totalProducts}</p>
+          </div>
+        </div>
+        <div className="summaryCard">
+          <div className="cardIcon">✅</div>
+          <div className="cardContent">
+            <h3>Active Products</h3>
+            <p className="cardValue">{activeProducts}</p>
+          </div>
+        </div>
+        <div className="summaryCard">
+          <div className="cardIcon">🏷️</div>
+          <div className="cardContent">
+            <h3>Categories</h3>
+            <p className="cardValue">{uniqueCategories}</p>
+          </div>
+        </div>
       </div>
 
       {error && <div className="errorMessage">{error}</div>}
@@ -163,25 +193,32 @@ export default function ProductManager() {
           <p>Loading products...</p>
         </div>
       ) : (
-        <div className="productsGrid">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map(product => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onEdit={() => handleEditProduct(product)}
-                onDelete={() => handleDeleteProduct(product.id)}
-              />
-            ))
-          ) : (
-            <div className="emptyState">
-              <p>No products found</p>
-              <button className="addProductBtn" onClick={handleAddProduct}>
-                Add your first product
-              </button>
-            </div>
-          )}
-        </div>
+        <>
+          <div className="productsTable">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map(product => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onEdit={() => handleEditProduct(product)}
+                  onDelete={() => handleDeleteProduct(product.id)}
+                />
+              ))
+            ) : (
+              <div className="emptyState">
+                <p>No products found</p>
+                <button className="addProductBtn" onClick={handleAddProduct}>
+                  Add your first product
+                </button>
+              </div>
+            )}
+          </div>
+          
+          {/* Floating Action Button for Mobile */}
+          <button className="floatingAddBtn" onClick={handleAddProduct}>
+            +
+          </button>
+        </>
       )}
     </div>
   );
