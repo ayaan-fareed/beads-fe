@@ -142,7 +142,7 @@
   font-weight: 600;
 }
 
-.navLink.active::before {
+/* .navLink.active::before {
   content: '';
   position: absolute;
   left: 0;
@@ -150,7 +150,7 @@
   bottom: 0;
   width: 4px;
   background: var(--pink-dark);
-}
+} */
 
 .navIcon {
   font-size: 1.2rem;

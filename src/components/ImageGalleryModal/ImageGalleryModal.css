@@ -1,0 +1,279 @@
+/* Image Gallery Modal Styling */
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: white;
+  border-radius: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.closeButton:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.mainImageContainer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.navButton:hover:not(:disabled) {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.prevButton {
+  left: 15px;
+}
+
+.nextButton {
+  right: 15px;
+}
+
+.thumbnailContainer {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  background: white;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  background: none;
+}
+
+.thumbnail:hover {
+  border-color: #e8839f;
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  border-color: var(--pink-dark);
+  box-shadow: 0 0 0 3px rgba(232, 131, 159, 0.2);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productInfo {
+  padding: 20px;
+  background: white;
+  text-align: center;
+}
+
+.productInfo h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.productInfo p {
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.productInfo .price {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--pink-dark);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .modalBackdrop {
+    padding: 10px;
+  }
+
+  .modalContent {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+
+  .mainImageContainer {
+    height: 300px;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .prevButton {
+    left: 10px;
+  }
+
+  .nextButton {
+    right: 10px;
+  }
+
+  .thumbnailContainer {
+    padding: 15px;
+    gap: 8px;
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  .productInfo {
+    padding: 15px;
+  }
+
+  .productInfo h3 {
+    font-size: 1.2rem;
+  }
+
+  .productInfo p {
+    font-size: 0.85rem;
+  }
+
+  .productInfo .price {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainImageContainer {
+    height: 250px;
+  }
+
+  .navButton {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .thumbnail {
+    width: 45px;
+    height: 45px;
+  }
+
+  .closeButton {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    top: 10px;
+    right: 10px;
+  }
+}

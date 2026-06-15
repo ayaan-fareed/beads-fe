@@ -24,7 +24,6 @@ export default function App() {
     const handleHashChange = () => {
       if (window.location.hash === '#admin') {
         setActivePage('admin');
-        window.location.hash = '';
       }
     };
 
@@ -35,6 +34,19 @@ export default function App() {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
+
+  // Update hash when navigating to/from admin
+  useEffect(() => {
+    if (activePage === 'admin') {
+      if (window.location.hash !== '#admin') {
+        window.location.hash = '#admin';
+      }
+    } else {
+      if (window.location.hash === '#admin') {
+        window.location.hash = '';
+      }
+    }
+  }, [activePage]);
 
   const total = useMemo(() => cart.reduce((sum, item) => sum + item.price, 0), [cart]);
 
