@@ -7,9 +7,9 @@ export default function ProductQuickView({ isOpen, onClose, product, onAddToCart
   if (!isOpen || !product) return null;
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('en-IN', {
+    return new Intl.NumberFormat('en-PK', {
       style: 'currency',
-      currency: 'INR',
+      currency: 'PKR',
       minimumFractionDigits: 0
     }).format(price);
   };
@@ -18,14 +18,9 @@ export default function ProductQuickView({ isOpen, onClose, product, onAddToCart
     for (let i = 0; i < quantity; i++) {
       onAddToCart(product.id);
     }
-    onClose();
   };
 
-  const handleQuickAdd = () => {
-    onAddToCart(product.id);
-    onClose();
-  };
-
+  
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -56,7 +51,6 @@ export default function ProductQuickView({ isOpen, onClose, product, onAddToCart
                 {product.icon}
               </div>
             )}
-            
             
             {/* Badge */}
             {product.badge && (
@@ -99,9 +93,6 @@ export default function ProductQuickView({ isOpen, onClose, product, onAddToCart
 
             {/* Action Buttons */}
             <div className="quickViewActions">
-              <button className="quickAddBtn" onClick={handleQuickAdd}>
-                Quick Add
-              </button>
               <button className="addToCartBtn" onClick={handleAddToCart}>
                 Add to Cart
               </button>
@@ -111,16 +102,22 @@ export default function ProductQuickView({ isOpen, onClose, product, onAddToCart
             <div className="quickViewInfo">
               <div className="infoItem">
                 <span className="infoIcon">🚚</span>
-                <span>Fast Delivery</span>
+                <span>Delivery: 2-4 Days</span>
               </div>
               <div className="infoItem">
                 <span className="infoIcon">💎</span>
-                <span>Premium Quality</span>
+                <span>Quality Assurance</span>
               </div>
               <div className="infoItem">
                 <span className="infoIcon">🔄</span>
-                <span>Easy Returns</span>
+                <span>7 Days Return</span>
               </div>
+            </div>
+
+            {/* Secure Payment Message */}
+            <div className="securePayment">
+              <span className="lockIcon">🔒</span>
+              <span>Secure Payment</span>
             </div>
           </div>
         </div>

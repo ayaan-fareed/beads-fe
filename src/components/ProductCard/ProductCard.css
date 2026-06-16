@@ -100,7 +100,6 @@
 }
 
 .badge {
-  background: linear-gradient(135deg, #e8839f, #d66a8a);
   color: white;
   box-shadow: 0 2px 8px rgba(232, 131, 159, 0.3);
 }

@@ -8,7 +8,7 @@ function WhatsAppIcon() {
   );
 }
 
-export default function CartDrawer({ cart, total, isOpen, onClose, onRemove, onOrder, onOrderForm }) {
+export default function CartDrawer({ cart, total, isOpen, onClose, onRemove, onOrder, onOrderForm, onUpdateQuantity }) {
   return (
     <>
       <div className={`cartOverlay ${isOpen ? 'open' : ''}`} onClick={onClose} />
@@ -37,9 +37,27 @@ export default function CartDrawer({ cart, total, isOpen, onClose, onRemove, onO
                 </div>
                 <div className="cartItemInfo">
                   <div className="cartItemName">{item.name}</div>
-                  <div className="cartItemPrice">Rs. {item.price}</div>
+                  <div className="cartItemPrice">Rs. {item.price} × {item.quantity || 1}</div>
                 </div>
-                <button className="removeBtn" onClick={() => onRemove(item.uid)} aria-label={`Remove ${item.name}`}>✕</button>
+                <div className="cartItemActions">
+                  <div className="quantityControls">
+                    <button 
+                      className="quantityBtn" 
+                      onClick={() => onUpdateQuantity(item.uid, (item.quantity || 1) - 1)}
+                      disabled={(item.quantity || 1) <= 1}
+                    >
+                      −
+                    </button>
+                    <span className="quantityValue">{item.quantity || 1}</span>
+                    <button 
+                      className="quantityBtn" 
+                      onClick={() => onUpdateQuantity(item.uid, (item.quantity || 1) + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button className="removeBtn" onClick={() => onRemove(item.uid)} aria-label={`Remove ${item.name}`}>✕</button>
+                </div>
               </div>
             ))
           )}
