@@ -59,11 +59,12 @@
 
 .productBadge {
   font-size: 0.7rem;
-  padding: 2px 8px;
+  padding: 3px 6px 3px 8px;
   border-radius: 12px;
   font-weight: 600;
   display: inline-block;
   margin-top: 4px;
+
 }
 
 .badgehot {
@@ -74,6 +75,7 @@
 .badgenew {
   background: #ff5900;
   color: #ffff;
+  width: 43px;
 }
 
 .badgesale {
@@ -211,26 +213,35 @@
     align-items: center;
     gap: 6px;
     margin: 0;
+    width: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   
   .badgehot {
     background: #e74c3c;
     color: white;
+    width: 43px;
   }
   
   .badgenew {
     background: #ff5900;
     color: #ffff;
+    width: 43px;
   }
   
   .badgesale {
     background: #aed1ae;
     color: #2d7a2d;
+    width: 43px;
   }
   
   .badgeSOLD {
     background: #ffebee;
     color: #c62828;
+    width: 43px;
   }
   
   /* Category and badges section */
