@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import ImageGalleryModal from '../ImageGalleryModal/ImageGalleryModal';
+import ProductQuickView from '../ProductQuickView/ProductQuickView';
 import './ProductCard.css';
 
 export default function ProductCard({ product, onAddToCart }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
 
   const handleImageClick = () => {
     if (product.image) {
-      setIsModalOpen(true);
+      setIsQuickViewOpen(true);
     }
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleCloseQuickView = () => {
+    setIsQuickViewOpen(false);
   };
 
   return (
@@ -44,6 +50,13 @@ export default function ProductCard({ product, onAddToCart }) {
           </div>
         </div>
       </article>
+      
+      <ProductQuickView 
+        isOpen={isQuickViewOpen}
+        onClose={handleCloseQuickView}
+        product={product}
+        onAddToCart={onAddToCart}
+      />
       
       <ImageGalleryModal 
         isOpen={isModalOpen}

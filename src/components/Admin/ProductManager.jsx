@@ -123,9 +123,15 @@ export default function ProductManager() {
   return (
     <div className="productManager">
       <div className="managerHeader">
-        <h1>Product Management</h1>
+        <div className="headerContent">
+          <h1>Product Management</h1>
+          <div className="headerStats">
+            <span className="mobileStat">{totalProducts} products</span>
+          </div>
+        </div>
         <button className="addProductBtn" onClick={handleAddProduct}>
-          ➕ Add New Product
+          <span className="btnIcon">➕</span>
+          <span className="btnText">Add New Product</span>
         </button>
       </div>
 
@@ -134,14 +140,14 @@ export default function ProductManager() {
         <div className="summaryCard">
           <div className="cardIcon">📦</div>
           <div className="cardContent">
-            <h3>Total Products</h3>
+            <h3>Total</h3>
             <p className="cardValue">{totalProducts}</p>
           </div>
         </div>
         <div className="summaryCard">
           <div className="cardIcon">✅</div>
           <div className="cardContent">
-            <h3>Active Products</h3>
+            <h3>Active</h3>
             <p className="cardValue">{activeProducts}</p>
           </div>
         </div>
@@ -183,8 +189,8 @@ export default function ProductManager() {
       </div>
 
       <div className="productsStats">
-        <span className="stat">Total: {products.length} products</span>
-        <span className="stat">Showing: {filteredProducts.length} products</span>
+        <span className="stat mobileHidden">Total: {products.length} products</span>
+        <span className="stat mobileHidden">Showing: {filteredProducts.length} products</span>
       </div>
 
       {loading ? (

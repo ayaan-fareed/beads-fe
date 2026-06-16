@@ -21,7 +21,7 @@
 /* Product Image Section */
 .productImage {
   width: 100%;
-  height: 161px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +36,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.3s ease;
 }
 
@@ -70,16 +71,38 @@
   padding: 0.18rem 0.5rem;
   border-radius: 999px;
   font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .badgeNew {
-  background: #fff0e8;
-  color: var(--gold);
+  background: linear-gradient(135deg, #ffa502, #ff6348);
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 165, 2, 0.3);
 }
 
 .badgeHot {
-  background: #fdf0f4;
-  color: var(--pink-dark);
+  background: linear-gradient(135deg, #e8839f, #d66a8a);
+  color: white;
+  box-shadow: 0 2px 8px rgba(232, 131, 159, 0.3);
+}
+
+.badgeSale {
+  background: linear-gradient(135deg, #2ed573, #26d0ce);
+  color: white;
+  box-shadow: 0 2px 8px rgba(46, 213, 115, 0.3);
+}
+
+.badgeBest {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.badge {
+  background: linear-gradient(135deg, #e8839f, #d66a8a);
+  color: white;
+  box-shadow: 0 2px 8px rgba(232, 131, 159, 0.3);
 }
 
 /* Product Title */
@@ -138,6 +161,13 @@
 @media (max-width: 480px) {
   .productImage {
     height: 200px;
+  }
+  
+  .productImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   
   .productFooter {

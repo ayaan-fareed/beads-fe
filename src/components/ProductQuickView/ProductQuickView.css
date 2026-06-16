@@ -1,0 +1,536 @@
+/* Quick View Popup Modal */
+.quickViewBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.quickViewModal {
+  background: white;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Close Button */
+.quickViewClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #e8839f;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.quickViewClose:hover {
+  background: #d66a8a;
+  transform: scale(1.1);
+}
+
+/* Main Content */
+.quickViewContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 500px;
+}
+
+/* Left Side - Image */
+.quickViewImage {
+  position: relative;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px 0 0 20px;
+  overflow: hidden;
+}
+
+.quickViewImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  min-height: 500px;
+}
+
+.quickViewPlaceholder {
+  font-size: 4rem;
+  color: var(--muted);
+}
+
+/* Special Tag */
+.quickViewTag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #e8839f;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Badge */
+.quickViewBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #e74c3c;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.badgehot {
+  background: linear-gradient(135deg, #e8839f, #d66a8a);
+  color: white;
+  box-shadow: 0 2px 8px rgba(232, 131, 159, 0.3);
+}
+
+.badgenew {
+  background: linear-gradient(135deg, #ffa502, #ff6348);
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 165, 2, 0.3);
+}
+
+.badgesale {
+  background: linear-gradient(135deg, #2ed573, #26d0ce);
+  color: white;
+  box-shadow: 0 2px 8px rgba(46, 213, 115, 0.3);
+}
+
+.badgebest {
+  background: linear-gradient(135deg, #e8839f, #d66a8a);
+  color: white;
+  box-shadow: 0 2px 8px rgba(232, 131, 159, 0.3);
+}
+
+/* Right Side - Details */
+.quickViewDetails {
+  background: #e8839f;
+  padding: 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0 20px 20px 0;
+}
+
+.quickViewName {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.quickViewDescription {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 25px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.quickViewPrice {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 30px 0;
+}
+
+/* Quantity Selector */
+.quickViewQuantity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.quickViewQuantity label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.quantityBtn {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.quantityBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.quantityBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantityValue {
+  width: 50px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Action Buttons */
+.quickViewActions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.quickAddBtn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quickAddBtn:hover {
+  background: white;
+  color: #e8839f;
+  transform: translateY(-2px);
+}
+
+.addToCartBtn {
+  background: #d66a8a;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.addToCartBtn:hover {
+  background: #c45a7a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional Info */
+.quickViewInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.infoIcon {
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quickViewBackdrop {
+    padding: 10px;
+  }
+  
+  .quickViewModal {
+    border-radius: 15px;
+    max-height: 95vh;
+  }
+  
+  .quickViewContent {
+    grid-template-columns: 1fr;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .quickViewImage {
+    border-radius: 15px 15px 0 0;
+    min-height: 280px;
+  }
+  
+  .quickViewImage img {
+    min-height: 280px;
+  }
+  
+  .quickViewDetails {
+    padding: 30px 25px;
+    border-radius: 0 0 15px 15px;
+    min-height: auto;
+  }
+  
+  .quickViewName {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .quickViewDescription {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .quickViewPrice {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .quickViewQuantity {
+    margin-bottom: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .quickViewActions {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+  
+  .quickAddBtn,
+  .addToCartBtn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .quickViewInfo {
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .infoItem {
+    font-size: 0.95rem;
+  }
+  
+  .quickViewTag,
+  .quickViewBadge {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+  
+  .quickViewClose {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quickViewBackdrop {
+    padding: 8px;
+  }
+  
+  .quickViewModal {
+    border-radius: 12px;
+  }
+  
+  .quickViewImage {
+    min-height: 220px;
+  }
+  
+  .quickViewImage img {
+    min-height: 220px;
+  }
+  
+  .quickViewDetails {
+    padding: 25px 20px;
+    border-radius: 0 0 12px 12px;
+  }
+  
+  .quickViewName {
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .quickViewDescription {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+  
+  .quickViewPrice {
+    font-size: 1.6rem;
+    margin-bottom: 22px;
+  }
+  
+  .quickViewQuantity {
+    margin-bottom: 22px;
+  }
+  
+  .quickViewActions {
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  
+  .quickAddBtn,
+  .addToCartBtn {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
+  
+  .quantityControls {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .quantityBtn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+  
+  .quantityValue {
+    width: 45px;
+    font-size: 1rem;
+  }
+  
+  .quickViewInfo {
+    gap: 12px;
+  }
+  
+  .infoItem {
+    font-size: 0.9rem;
+  }
+  
+  .quickViewTag,
+  .quickViewBadge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+  
+  .quickViewClose {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .quickViewModal {
+    border-radius: 10px;
+  }
+  
+  .quickViewImage {
+    min-height: 180px;
+  }
+  
+  .quickViewImage img {
+    min-height: 180px;
+  }
+  
+  .quickViewDetails {
+    padding: 20px 15px;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .quickViewName {
+    font-size: 1.7rem;
+  }
+  
+  .quickViewDescription {
+    font-size: 0.9rem;
+  }
+  
+  .quickViewPrice {
+    font-size: 1.4rem;
+  }
+  
+  .quickViewActions {
+    gap: 8px;
+  }
+  
+  .quickAddBtn,
+  .addToCartBtn {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
+  
+  .quickViewTag,
+  .quickViewBadge {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+  }
+}

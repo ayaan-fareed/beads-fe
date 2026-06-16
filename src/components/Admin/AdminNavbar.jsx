@@ -12,7 +12,7 @@ export default function AdminNavbar({ onLogout, onNavigate, onMobileMenuToggle }
             onClick={onMobileMenuToggle}
             aria-label="Toggle mobile menu"
           >
-            ☰
+            <span className="hamburgerIcon">☰</span>
           </button>
           
           <div className="navbarBrand">
@@ -26,14 +26,16 @@ export default function AdminNavbar({ onLogout, onNavigate, onMobileMenuToggle }
             className="backToSiteBtn"
             onClick={() => onNavigate('home')}
           >
-            🏠 Back to Site
+            <span className="btnIcon">🏠</span>
+            <span className="btnText">Back to Site</span>
           </button>
           
           <button 
             className="logoutBtn"
             onClick={onLogout}
           >
-            🚪 Logout
+            <span className="btnIcon">🚪</span>
+            <span className="btnText">Logout</span>
           </button>
         </div>
       </div>

@@ -56,7 +56,8 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
         onMobileMenuToggle={handleMobileSidebarToggle}
       />
       <div className="adminContainer">
-        <aside className="adminSidebar">
+        {/* Desktop Sidebar - Hidden on mobile */}
+        <aside className="adminSidebar desktopSidebar">
           <nav className="sidebarNav">
             <ul className="navList">
               <li className="navItem">

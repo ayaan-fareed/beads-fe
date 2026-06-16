@@ -13,7 +13,7 @@ export default function ProductCard({ product, onEdit, onDelete }) {
   return (
     <div className="adminProductCard">
       <div className="productRow">
-        <div className="productImage">
+        <div className="adminProductImage">
           {product.image ? (
             <img src={product.image} alt={product.name} />
           ) : (

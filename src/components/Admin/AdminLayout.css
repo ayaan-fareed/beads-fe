@@ -78,7 +78,7 @@
   }
   
   /* Hide desktop sidebar on mobile */
-  .adminSidebar {
+  .desktopSidebar {
     display: none;
   }
   
@@ -99,5 +99,19 @@
   .navLink {
     padding: 6px 12px;
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .adminContent {
+    padding: 8px;
+  }
+  
+  .adminLayout {
+    min-height: 100vh;
+  }
+  
+  .adminContainer {
+    min-height: calc(100vh - 64px);
   }
 }

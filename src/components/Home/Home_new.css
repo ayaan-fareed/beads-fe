@@ -451,7 +451,7 @@
 
 .productImgWrap {
   position: relative;
-  height: 200px;
+  height: 220px;
   background: #f9f0f4;
   overflow: hidden;
 }
@@ -460,6 +460,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.3s;
 }
 
@@ -520,33 +521,55 @@
 }
 
 .badgeNew {
-  background: var(--steel-light);
-  color: var(--steel-dark);
+  background: linear-gradient(135deg, #ffa502, #ff6348);
+  color: white;
   font-size: 0.6rem;
   padding: 2px 7px;
   border-radius: 8px;
   font-weight: 600;
   font-family: var(--ff-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(255, 165, 2, 0.3);
 }
 
 .badgeHot {
-  background: var(--steel);
-  color: var(--white);
+  background: linear-gradient(135deg, #e8839f, #d66a8a);
+  color: white;
   font-size: 0.6rem;
   padding: 2px 7px;
   border-radius: 8px;
   font-weight: 600;
   font-family: var(--ff-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(232, 131, 159, 0.3);
 }
 
 .badgeBest {
-  background: var(--chrome);
-  color: var(--steel-dark);
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
   font-size: 0.6rem;
   padding: 2px 7px;
   border-radius: 8px;
   font-weight: 600;
   font-family: var(--ff-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.badgeSale {
+  background: linear-gradient(135deg, #2ed573, #26d0ce);
+  color: white;
+  font-size: 0.6rem;
+  padding: 2px 7px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: var(--ff-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(46, 213, 115, 0.3);
 }
 
 .productName {

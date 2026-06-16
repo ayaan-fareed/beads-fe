@@ -105,14 +105,17 @@
 
 .imagePreview {
   margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .imagePreview img {
-  max-width: 200px;
-  max-height: 150px;
+  width: 200px;
+  height: 150px;
   border-radius: 8px;
   border: 1px solid #e1e5e9;
   object-fit: cover;
+  object-position: center;
 }
 
 .iconSelector {
@@ -219,6 +222,11 @@
     gap: 20px;
   }
   
+  .imagePreview img {
+    width: 150px;
+    height: 120px;
+  }
+  
   .formActions {
     flex-direction: column-reverse;
   }
@@ -226,5 +234,16 @@
   .cancelBtn,
   .submitBtn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .productForm {
+    padding: 16px;
+  }
+  
+  .imagePreview img {
+    width: 120px;
+    height: 100px;
   }
 }
