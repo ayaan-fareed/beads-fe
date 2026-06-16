@@ -53,8 +53,14 @@
 
 /* Mobile Responsive */
 @media (max-width: 480px) {
-  .cartItemA  .cartItemA  .cartItemA  .c 
-                                              24            -size: 0.8rem;
+  .cartItemActions {
+    gap: 6px;
+  }
+  
+  .quantityBtn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
   }
   
   .quantityValue {
