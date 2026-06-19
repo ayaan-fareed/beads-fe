@@ -80,32 +80,32 @@
 }
 
 .orderSummary {
-  padding: 12px;
+  padding: 10px;
   background: var(--pink-light);
   border-bottom: 1px solid var(--line);
   flex-shrink: 0;
 }
 
 .orderSummary h3 {
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   color: var(--text);
   font-size: 1rem;
   font-weight: 600;
 }
 
 .summaryItems {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .summaryItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 10px;
+  gap: 8px;
+  padding: 5px 8px;
   border-bottom: 1px solid var(--line);
   background: white;
-  border-radius: 10px;
-  margin-bottom: 6px;
+  border-radius: 8px;
+  margin-bottom: 5px;
 }
 
 .summaryItem:last-child {
@@ -114,16 +114,16 @@
 }
 
 .itemImage {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
 .itemImagePlaceholder {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   background: var(--pink-light);
   flex-shrink: 0;
@@ -146,13 +146,13 @@
   text-align: right;
   font-size: 1.1rem;
   color: var(--text);
-  padding-top: 8px;
+  padding-top: 6px;
   border-top: 2px solid var(--line);
   font-weight: 700;
 }
 
 .orderForm {
-  padding: 12px;
+  padding: 10px;
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
@@ -162,17 +162,21 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+}
+
+.formRow .formGroup {
+  margin-bottom: 0;
 }
 
 .formGroup label {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   color: var(--text);
   font-weight: 600;
   font-size: 0.85rem;
@@ -181,10 +185,10 @@
 .formGroup input,
 .formGroup select,
 .formGroup textarea {
-  padding: 8px 12px;
+  padding: 7px 10px;
   border: 2px solid var(--line);
-  border-radius: 10px;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
   transition: all 0.2s ease;
   box-sizing: border-box;
   font-family: 'DM Sans', sans-serif;
@@ -210,7 +214,7 @@
 
 .formGroup textarea {
   resize: vertical;
-  min-height: 36px;
+  min-height: 32px;
 }
 
 .errorMessage {
@@ -260,136 +264,286 @@
   transform: none;
 }
 
-@media (max-width: 768px) {
-  .orderFormOverlay {
-    padding: 10px;
-  }
-  
-  .orderFormContainer {
-    max-height: 92vh;
-  }
-  
-  .formRow {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  
-  .orderFormHeader {
-    padding: 12px;
-  }
-  
-  .orderFormHeader h2 {
-    font-size: 1.2rem;
-  }
-  
-  .orderSummary,
-  .orderForm {
-    padding: 10px;
-  }
-  
-  .formGroup {
-    margin-bottom: 8px;
-  }
-  
-  .formGroup label {
-    font-size: 0.8rem;
-  }
-  
-  .formGroup input,
-  .formGroup select,
-  .formGroup textarea {
-    padding: 7px 10px;
-    font-size: 0.85rem;
-  }
-  
-  .formGroup textarea {
-    min-height: 32px;
-  }
-  
-  .submitBtn {
-    padding: 10px 18px;
-    font-size: 0.85rem;
-  }
+.cancelBtn {
+  padding: 10px 20px;
+  border: 2px solid var(--line);
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+  background: white;
+  color: var(--pink-dark);
+  width: 100%;
 }
 
-@media (max-width: 480px) {
+.cancelBtn:hover:not(:disabled) {
+  background: var(--pink-light);
+  border-color: var(--pink);
+}
+
+.cancelBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
   .orderFormOverlay {
     padding: 8px;
   }
-  
+
   .orderFormContainer {
     max-height: 94vh;
+    border-radius: 16px;
   }
-  
+
   .orderFormHeader {
-    padding: 10px;
+    padding: 10px 12px;
+    border-radius: 16px 16px 0 0;
   }
-  
+
   .orderFormHeader h2 {
     font-size: 1.1rem;
   }
-  
-  .orderSummary,
-  .orderForm {
-    padding: 8px;
+
+  .closeBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
   }
-  
+
+  .orderSummary {
+    padding: 8px 10px;
+  }
+
+  .orderSummary h3 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .summaryItem {
+    padding: 5px 8px;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .itemImage,
+  .itemImagePlaceholder {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+  }
+
+  .itemName,
+  .itemPrice {
+    font-size: 0.8rem;
+  }
+
+  .summaryTotal {
+    font-size: 0.95rem;
+    padding-top: 6px;
+  }
+
+  .orderForm {
+    padding: 8px 10px;
+  }
+
+  .formRow {
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
   .formGroup {
     margin-bottom: 6px;
   }
-  
+
+  .formGroup label {
+    font-size: 0.75rem;
+    margin-bottom: 3px;
+  }
+
   .formGroup input,
   .formGroup select,
   .formGroup textarea {
     padding: 6px 9px;
     font-size: 0.8rem;
+    border-radius: 8px;
   }
-  
+
   .formGroup textarea {
     min-height: 30px;
   }
-  
+
+  .formActions {
+    gap: 8px;
+    margin-top: 6px;
+    padding-top: 8px;
+  }
+
   .submitBtn {
     padding: 8px 14px;
     font-size: 0.8rem;
+    border-radius: 20px;
+  }
+
+  .cancelBtn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .errorMessage {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
+  .orderFormOverlay {
+    padding: 6px;
+  }
+
   .orderFormContainer {
     max-height: 96vh;
+    border-radius: 14px;
   }
-  
+
   .orderFormHeader {
-    padding: 8px;
+    padding: 8px 10px;
+    border-radius: 14px 14px 0 0;
   }
-  
+
   .orderFormHeader h2 {
     font-size: 1rem;
   }
-  
+
+  .closeBtn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
   .orderSummary,
   .orderForm {
-    padding: 6px;
+    padding: 6px 8px;
   }
-  
+
+  .formRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 3px;
+  }
+
   .formGroup {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
   }
-  
+
+  .formGroup label {
+    font-size: 0.7rem;
+    margin-bottom: 2px;
+  }
+
   .formGroup input,
   .formGroup select,
   .formGroup textarea {
     padding: 5px 7px;
     font-size: 0.75rem;
+    border-radius: 6px;
   }
-  
+
   .formGroup textarea {
-    min-height: 28px;
+    min-height: 26px;
   }
-  
-  .submitBtn {
-    padding: 8px 12px;
+
+  .formActions {
+    gap: 6px;
+    margin-top: 3px;
+    padding-top: 5px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 7px 12px;
     font-size: 0.75rem;
+  }
+
+  .errorMessage {
+    padding: 5px 7px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .orderFormOverlay {
+    padding: 4px;
+  }
+
+  .orderFormContainer {
+    max-height: 98vh;
+    border-radius: 12px;
+  }
+
+  .orderFormHeader {
+    padding: 6px 8px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .orderFormHeader h2 {
+    font-size: 0.95rem;
+  }
+
+  .closeBtn {
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+  }
+
+  .orderSummary,
+  .orderForm {
+    padding: 5px 6px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 3px;
+  }
+
+  .formGroup {
+    margin-bottom: 3px;
+  }
+
+  .formGroup label {
+    font-size: 0.65rem;
+    margin-bottom: 1px;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+  }
+
+  .formGroup textarea {
+    min-height: 24px;
+  }
+
+  .formActions {
+    gap: 5px;
+    margin-top: 3px;
+    padding-top: 5px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  .errorMessage {
+    padding: 4px 6px;
+    font-size: 0.65rem;
   }
 }

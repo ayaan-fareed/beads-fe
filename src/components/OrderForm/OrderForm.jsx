@@ -128,16 +128,30 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
             </div>
           </div>
 
-          <div className="formGroup">
-            <label htmlFor="customerEmail">Email</label>
-            <input
-              type="email"
-              id="customerEmail"
-              name="customerEmail"
-              value={formData.customerEmail}
-              onChange={handleChange}
-              disabled={loading}
-            />
+          <div className="formRow">
+            <div className="formGroup">
+              <label htmlFor="customerEmail">Email</label>
+              <input
+                type="email"
+                id="customerEmail"
+                name="customerEmail"
+                value={formData.customerEmail}
+                onChange={handleChange}
+                disabled={loading}
+              />
+            </div>
+            <div className="formGroup">
+              <label htmlFor="customerCity">City *</label>
+              <input
+                type="text"
+                id="customerCity"
+                name="customerCity"
+                value={formData.customerCity}
+                onChange={handleChange}
+                required
+                disabled={loading}
+              />
+            </div>
           </div>
 
           <div className="formGroup">
@@ -153,45 +167,34 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
             />
           </div>
 
-          <div className="formGroup">
-            <label htmlFor="customerCity">City *</label>
-            <input
-              type="text"
-              id="customerCity"
-              name="customerCity"
-              value={formData.customerCity}
-              onChange={handleChange}
-              required
-              disabled={loading}
-            />
-          </div>
+          <div className="formRow">
+            <div className="formGroup">
+              <label htmlFor="paymentMethod">Payment Method</label>
+              <select
+                id="paymentMethod"
+                name="paymentMethod"
+                value={formData.paymentMethod}
+                onChange={handleChange}
+                disabled={loading}
+              >
+                <option value="cod">Cash on Delivery</option>
+                <option value="bank">Bank Transfer</option>
+                <option value="easy Paisa">EasyPaisa</option>
+                <option value="jazzCash">JazzCash</option>
+              </select>
+            </div>
 
-          <div className="formGroup">
-            <label htmlFor="paymentMethod">Payment Method</label>
-            <select
-              id="paymentMethod"
-              name="paymentMethod"
-              value={formData.paymentMethod}
-              onChange={handleChange}
-              disabled={loading}
-            >
-              <option value="cod">Cash on Delivery</option>
-              <option value="bank">Bank Transfer</option>
-              <option value="easy Paisa">EasyPaisa</option>
-              <option value="jazzCash">JazzCash</option>
-            </select>
-          </div>
-
-          <div className="formGroup">
-            <label htmlFor="notes">Order Notes (Optional)</label>
-            <textarea
-              id="notes"
-              name="notes"
-              value={formData.notes}
-              onChange={handleChange}
-              disabled={loading}
-              rows={1}
-            />
+            <div className="formGroup">
+              <label htmlFor="notes">Order Notes</label>
+              <textarea
+                id="notes"
+                name="notes"
+                value={formData.notes}
+                onChange={handleChange}
+                disabled={loading}
+                rows={1}
+              />
+            </div>
           </div>
 
           {error && <div className="errorMessage">{error}</div>}
