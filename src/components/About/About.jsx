@@ -34,7 +34,7 @@ const ourPromise = [
 ];
 
 const instaImages = [
-  braceletImage, necklaceImage2, ringsImage, topsImage, necklaceImage, heroAboutImage
+  braceletImage, necklaceImage2, ringsImage, topsImage, necklaceImage
 ];
 
 // Mobile Slider Component

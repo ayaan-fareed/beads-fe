@@ -37,7 +37,7 @@ const stats = [
 const instaEmojis = ['📿', '💍', '💎', '🪬', '✨'];
 
 
-export default function Home({ onNavigate }) {
+export default function Home({ onNavigate, onAddToCart }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [bestSellers, setBestSellers] = useState([]);
@@ -166,14 +166,14 @@ export default function Home({ onNavigate }) {
           <div className="productsRow">
             {bestSellers.map((p) => (
               <ProductCard 
-                key={p.uid} 
+                key={p.id} 
                 product={{
                   ...p,
                   tag: p.category,
                   desc: '',
-                  id: p.uid
+                  id: p.id
                 }} 
-                onAddToCart={() => onNavigate('shop')} 
+                onAddToCart={onAddToCart} 
               />
             ))}
           </div>

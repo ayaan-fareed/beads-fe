@@ -12,14 +12,45 @@
 }
 
 .adminSidebar {
-  width: 250px;
-  background: var(--white);
+  width: 260px;
+  background: linear-gradient(180deg, var(--pink-light) 0%, #fff9fb 60%, var(--white) 100%);
   border-right: 1px solid var(--line);
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarHeader {
+  padding: 28px 20px 22px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(247, 197, 213, 0.35), rgba(253, 240, 244, 0.6));
+}
+
+.sidebarLogo {
+  font-size: 2.6rem;
+  margin-bottom: 6px;
+}
+
+.sidebarBrand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.sidebarTagline {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--pink-dark);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
 }
 
 .sidebarNav {
-  padding: 20px 0;
+  padding: 18px 14px;
+  flex: 1;
 }
 
 .navList {
@@ -29,35 +60,64 @@
 }
 
 .navItem {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 .navLink {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  gap: 12px;
+  padding: 13px 16px;
   color: var(--muted);
   text-decoration: none;
   font-weight: 500;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  border-left: 3px solid transparent;
-  background: none;
+  transition: all 0.25s ease;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
   border: none;
   width: 100%;
   text-align: left;
   cursor: pointer;
   font-size: 0.95rem;
+  box-shadow: 0 1px 2px rgba(196, 90, 122, 0.04);
 }
 
 .navLink:hover {
-  background-color: var(--pink-light);
-  color: var(--text);
+  background: var(--white);
+  color: var(--pink-dark);
+  box-shadow: 0 6px 18px rgba(232, 131, 159, 0.14);
+  transform: translateY(-1px);
 }
 
 .navLink.active {
-  background-color: var(--pink-light);
-  color: var(--pink-dark);
-  border-left-color: var(--pink-dark);
+  background: linear-gradient(135deg, var(--pink-dark), #d86b8a);
+  color: var(--white);
+  box-shadow: 0 8px 22px rgba(196, 90, 122, 0.22);
+}
+
+.navLink .navIcon {
+  font-size: 1.15rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 197, 213, 0.35);
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.navLink.active .navIcon {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.sidebarFooter {
+  padding: 16px 18px;
+  border-top: 1px solid var(--line);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(247, 197, 213, 0.15);
 }
 
 .adminMain {

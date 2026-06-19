@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 20px;
+  padding: 12px;
 }
 
 .orderFormContainer {
@@ -17,18 +17,34 @@
   border-radius: 20px;
   max-width: 600px;
   width: 100%;
-  height: 85vh; /* Fixed height */
-  overflow: hidden; /* No scroll */
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
   box-shadow: 0 20px 60px rgba(232, 131, 159, 0.2);
   display: flex;
   flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pink) transparent;
+}
+
+.orderFormContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.orderFormContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.orderFormContainer::-webkit-scrollbar-thumb {
+  background-color: var(--pink);
+  border-radius: 3px;
 }
 
 .orderFormHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--line);
   background: linear-gradient(135deg, var(--pink-deep), var(--pink-dark));
   color: white;
@@ -38,7 +54,7 @@
 
 .orderFormHeader h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   font-family: 'Cormorant Garamond', serif;
 }
@@ -64,33 +80,32 @@
 }
 
 .orderSummary {
-  padding: 15px;
+  padding: 12px;
   background: var(--pink-light);
   border-bottom: 1px solid var(--line);
   flex-shrink: 0;
 }
 
 .orderSummary h3 {
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   color: var(--text);
   font-size: 1rem;
   font-weight: 600;
 }
 
 .summaryItems {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .summaryItem {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 0;
+  gap: 10px;
+  padding: 6px 10px;
   border-bottom: 1px solid var(--line);
   background: white;
-  padding: 8px 12px;
   border-radius: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .summaryItem:last-child {
@@ -98,36 +113,47 @@
   margin-bottom: 0;
 }
 
-.itemIcon {
-  font-size: 1.2rem;
+.itemImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.itemImagePlaceholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--pink-light);
+  flex-shrink: 0;
 }
 
 .itemName {
   flex: 1;
   font-weight: 500;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .itemPrice {
   font-weight: 600;
   color: var(--pink-dark);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .summaryTotal {
   text-align: right;
   font-size: 1.1rem;
   color: var(--text);
-  padding-top: 12px;
+  padding-top: 8px;
   border-top: 2px solid var(--line);
   font-weight: 700;
 }
 
 .orderForm {
-  padding: 15px;
-  flex: 1;
-  overflow-y: auto; /* Only form content scrolls if needed */
+  padding: 12px;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
 }
@@ -135,14 +161,14 @@
 .formRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .formGroup label {
@@ -155,7 +181,7 @@
 .formGroup input,
 .formGroup select,
 .formGroup textarea {
-  padding: 10px 14px;
+  padding: 8px 12px;
   border: 2px solid var(--line);
   border-radius: 10px;
   font-size: 0.9rem;
@@ -184,15 +210,15 @@
 
 .formGroup textarea {
   resize: vertical;
-  min-height: 50px;
+  min-height: 36px;
 }
 
 .errorMessage {
   background: linear-gradient(135deg, var(--pink), var(--pink-dark));
   color: white;
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-size: 0.8rem;
   font-weight: 500;
   box-shadow: 0 4px 12px rgba(232, 131, 159, 0.2);
@@ -202,14 +228,14 @@
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-top: 15px;
-  padding-top: 15px;
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 2px solid var(--line);
   flex-shrink: 0;
 }
 
 .submitBtn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
   border-radius: 25px;
   font-size: 0.9rem;
@@ -240,59 +266,12 @@
   }
   
   .orderFormContainer {
-    height: 90vh; /* Fixed height for mobile */
+    max-height: 92vh;
   }
   
   .formRow {
     grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  
-  .orderFormHeader {
-    padding: 15px;
-  }
-  
-  .orderFormHeader h2 {
-    font-size: 1.3rem;
-  }
-  
-  .orderSummary,
-  .orderForm {
-    padding: 12px;
-  }
-  
-  .formGroup {
-    margin-bottom: 10px;
-  }
-  
-  .formGroup label {
-    font-size: 0.8rem;
-  }
-  
-  .formGroup input,
-  .formGroup select,
-  .formGroup textarea {
-    padding: 8px 12px;
-    font-size: 0.85rem;
-  }
-  
-  .formGroup textarea {
-    min-height: 40px;
-  }
-  
-  .submitBtn {
-    padding: 12px 20px;
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .orderFormOverlay {
-    padding: 8px;
-  }
-  
-  .orderFormContainer {
-    height: 92vh; /* Slightly taller for small screens */
+    gap: 8px;
   }
   
   .orderFormHeader {
@@ -308,26 +287,38 @@
     padding: 10px;
   }
   
+  .formGroup {
+    margin-bottom: 8px;
+  }
+  
+  .formGroup label {
+    font-size: 0.8rem;
+  }
+  
   .formGroup input,
   .formGroup select,
   .formGroup textarea {
-    padding: 8px 10px;
-    font-size: 0.8rem;
+    padding: 7px 10px;
+    font-size: 0.85rem;
   }
   
   .formGroup textarea {
-    min-height: 35px;
+    min-height: 32px;
   }
   
   .submitBtn {
-    padding: 10px 16px;
-    font-size: 0.8rem;
+    padding: 10px 18px;
+    font-size: 0.85rem;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
+  .orderFormOverlay {
+    padding: 8px;
+  }
+  
   .orderFormContainer {
-    height: 95vh; /* Maximum height for very small screens */
+    max-height: 94vh;
   }
   
   .orderFormHeader {
@@ -343,11 +334,15 @@
     padding: 8px;
   }
   
+  .formGroup {
+    margin-bottom: 6px;
+  }
+  
   .formGroup input,
   .formGroup select,
   .formGroup textarea {
-    padding: 6px 8px;
-    font-size: 0.75rem;
+    padding: 6px 9px;
+    font-size: 0.8rem;
   }
   
   .formGroup textarea {
@@ -355,7 +350,46 @@
   }
   
   .submitBtn {
-    padding: 10px 16px;
+    padding: 8px 14px;
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .orderFormContainer {
+    max-height: 96vh;
+  }
+  
+  .orderFormHeader {
+    padding: 8px;
+  }
+  
+  .orderFormHeader h2 {
+    font-size: 1rem;
+  }
+  
+  .orderSummary,
+  .orderForm {
+    padding: 6px;
+  }
+  
+  .formGroup {
+    margin-bottom: 5px;
+  }
+  
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 5px 7px;
+    font-size: 0.75rem;
+  }
+  
+  .formGroup textarea {
+    min-height: 28px;
+  }
+  
+  .submitBtn {
+    padding: 8px 12px;
+    font-size: 0.75rem;
   }
 }

@@ -9,6 +9,7 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
     customerPhone: '',
     customerEmail: '',
     deliveryAddress: '',
+    customerCity: '',
     paymentMethod: 'cod',
     notes: ''
   });
@@ -29,7 +30,7 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
     setError('');
 
     // Validate form
-    if (!formData.customerName.trim() || !formData.customerPhone.trim() || !formData.deliveryAddress.trim()) {
+    if (!formData.customerName.trim() || !formData.customerPhone.trim() || !formData.deliveryAddress.trim() || !formData.customerCity.trim()) {
       setError('Please fill in all required fields');
       setLoading(false);
       return;
@@ -42,12 +43,13 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
         customerPhone: formData.customerPhone,
         customerEmail: formData.customerEmail,
         deliveryAddress: formData.deliveryAddress,
+        customerCity: formData.customerCity,
         paymentMethod: formData.paymentMethod,
         notes: formData.notes,
         items: cart.map(item => ({
           name: item.name,
           price: item.price,
-          quantity: 1,
+          quantity: item.quantity || 1,
           icon: item.icon
         })),
         totalAmount: total,
@@ -81,23 +83,27 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
         <div className="orderSummary">
           <h3>Order Summary</h3>
           <div className="summaryItems">
-            {cart.map((item, index) => (
-              <div key={index} className="summaryItem">
-                <span className="itemIcon">{item.icon}</span>
-                <span className="itemName">{item.name}</span>
-                <span className="itemPrice">Rs. {item.price}</span>
+            {cart.map((item) => (
+              <div key={item.uid} className="summaryItem">
+                {item.image ? (
+                  <img src={item.image} alt={item.name} className="itemImage" />
+                ) : (
+                  <div className="itemImagePlaceholder" />
+                )}
+                <span className="itemName">{item.name} × {item.quantity || 1}</span>
+                <span className="itemPrice">Rs. {(item.price * (item.quantity || 1)).toLocaleString()}</span>
               </div>
             ))}
           </div>
           <div className="summaryTotal">
-            <strong>Total: Rs. {total}</strong>
+            <strong>Total: Rs. {total.toLocaleString()}</strong>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="orderForm">
           <div className="formRow">
             <div className="formGroup">
-              <label htmlFor="customerName">Full Name *</label>
+              <label htmlFor="customerName">Name *</label>
               <input
                 type="text"
                 id="customerName"
@@ -109,7 +115,7 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
               />
             </div>
             <div className="formGroup">
-              <label htmlFor="customerPhone">Phone Number *</label>
+              <label htmlFor="customerPhone">Phone *</label>
               <input
                 type="tel"
                 id="customerPhone"
@@ -123,7 +129,7 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
           </div>
 
           <div className="formGroup">
-            <label htmlFor="customerEmail">Email Address</label>
+            <label htmlFor="customerEmail">Email</label>
             <input
               type="email"
               id="customerEmail"
@@ -135,7 +141,7 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
           </div>
 
           <div className="formGroup">
-            <label htmlFor="deliveryAddress">Delivery Address *</label>
+            <label htmlFor="deliveryAddress">Address *</label>
             <textarea
               id="deliveryAddress"
               name="deliveryAddress"
@@ -143,8 +149,20 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
               onChange={handleChange}
               required
               disabled={loading}
-              rows={3}
-              placeholder="Enter your complete delivery address"
+              rows={2}
+            />
+          </div>
+
+          <div className="formGroup">
+            <label htmlFor="customerCity">City *</label>
+            <input
+              type="text"
+              id="customerCity"
+              name="customerCity"
+              value={formData.customerCity}
+              onChange={handleChange}
+              required
+              disabled={loading}
             />
           </div>
 
@@ -172,8 +190,7 @@ export default function OrderForm({ cart, total, isOpen, onClose, onOrderSuccess
               value={formData.notes}
               onChange={handleChange}
               disabled={loading}
-              rows={2}
-              placeholder="Any special instructions for your order"
+              rows={1}
             />
           </div>
 

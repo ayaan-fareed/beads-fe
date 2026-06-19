@@ -1000,8 +1000,8 @@
 
   /* Products — 2 columns on mobile */
   .productsRow {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3.8rem;
   }
 
   .productImgWrap {

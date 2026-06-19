@@ -58,6 +58,11 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
       <div className="adminContainer">
         {/* Desktop Sidebar - Hidden on mobile */}
         <aside className="adminSidebar desktopSidebar">
+          <div className="sidebarHeader">
+            <div className="sidebarLogo">✨</div>
+            <div className="sidebarBrand">Stainless Sparkle</div>
+            <div className="sidebarTagline">Admin Dashboard</div>
+          </div>
           <nav className="sidebarNav">
             <ul className="navList">
               <li className="navItem">
@@ -65,7 +70,7 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
                   className={`navLink ${activeSection === 'products' ? 'active' : ''}`}
                   onClick={() => handleNavClick('products')}
                 >
-                  📦 Products
+                  <span className="navIcon">📦</span> Products
                 </button>
               </li>
               <li className="navItem">
@@ -73,7 +78,7 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
                   className={`navLink ${activeSection === 'orders' ? 'active' : ''}`}
                   onClick={() => handleNavClick('orders')}
                 >
-                  🛍️ Orders
+                  <span className="navIcon">🛍️</span> Orders
                 </button>
               </li>
               <li className="navItem">
@@ -81,7 +86,7 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
                   className={`navLink ${activeSection === 'analytics' ? 'active' : ''}`}
                   onClick={() => handleNavClick('analytics')}
                 >
-                  📊 Analytics
+                  <span className="navIcon">📊</span> Analytics
                 </button>
               </li>
               <li className="navItem">
@@ -89,11 +94,14 @@ export default function AdminLayout({ children, onNavigate, onLogout }) {
                   className={`navLink ${activeSection === 'settings' ? 'active' : ''}`}
                   onClick={() => handleNavClick('settings')}
                 >
-                  ⚙️ Settings
+                  <span className="navIcon">⚙️</span> Settings
                 </button>
               </li>
             </ul>
           </nav>
+          <div className="sidebarFooter">
+            Made with love for Sparkle
+          </div>
         </aside>
         
         <main className="adminMain">
