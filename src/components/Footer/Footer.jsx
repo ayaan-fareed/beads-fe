@@ -142,14 +142,6 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <p>© 2024 Stainless sparkle. All Rights Reserved.</p>
-        <div className="footer-admin-link">
-          <a href="#admin" onClick={(e) => {
-            e.preventDefault();
-            window.location.hash = 'admin';
-          }}>
-            Admin Access
-          </a>
-        </div>
       </div>
     </footer>
   );

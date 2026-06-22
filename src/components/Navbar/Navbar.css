@@ -1,5 +1,5 @@
 .navbar {
-    height: 68px;
+    height: 56px;
     padding: 0 clamp(1rem, 4vw, 2.5rem);
     display: flex;
     align-items: center;
@@ -16,7 +16,7 @@
 .logo {
     background: transparent;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--pink-dark);
     letter-spacing: .02em;
@@ -36,9 +36,9 @@
 
 .navLink {
     background: transparent;
-    padding: .48rem 1.1rem;
+    padding: .34rem .85rem;
     border-radius: 999px;
-    font-size: .875rem;
+    font-size: .78rem;
     font-weight: 600;
     color: var(--muted);
     transition: .2s ease
@@ -53,14 +53,14 @@
 
 .cartBtn {
     background: var(--pink);
-    padding: .55rem 1.08rem;
+    padding: .4rem .85rem;
     border-radius: 999px;
-    font-size: .875rem;
+    font-size: .78rem;
     font-weight: 700;
     color: var(--pink-dark);
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 6px;
     transition: .2s ease;
     white-space: nowrap
 }
