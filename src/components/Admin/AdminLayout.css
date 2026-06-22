@@ -18,7 +18,9 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-}
+} 
+
+
 
 .sidebarHeader {
   padding: 28px 20px 22px;

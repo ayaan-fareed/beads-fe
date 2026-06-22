@@ -119,7 +119,7 @@ export default function About() {
             </p>
             <p>
               Our commitment to quality craftsmanship and customer satisfaction has made us one of Pakistan's most trusted 
-              stainless steel jewellery brands.
+              stainless steel jewellery brands. We are dedicated to providing our customers with the best possible experience, from the moment they discover our products to the day they receive their order.
             </p>
           </div>
           <div className="storyImage">
