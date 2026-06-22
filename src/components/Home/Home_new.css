@@ -930,7 +930,6 @@
 .instagramGrid {
   grid-template-columns: repeat(4, 1fr);
 }
-}
 
 /* ── MOBILE LARGE (≤600px) ── */
 @media (max-width: 600px) {
@@ -1082,5 +1081,4 @@
 
 .instagramGrid {
   grid-template-columns: repeat(3, 1fr);
-}
 }
