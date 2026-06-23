@@ -288,6 +288,76 @@
   cursor: not-allowed;
 }
 
+@media (max-width: 1024px) {
+  .orderFormOverlay {
+    padding: 10px;
+  }
+
+  .orderFormContainer {
+    max-width: 90vw;
+    max-height: 92vh;
+    border-radius: 18px;
+  }
+
+  .orderFormHeader {
+    padding: 12px 14px;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .orderFormHeader h2 {
+    font-size: 1.2rem;
+  }
+
+  .closeBtn {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  .orderSummary {
+    padding: 10px 12px;
+  }
+
+  .orderForm {
+    padding: 15px;
+  }
+
+  .formRow {
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .formGroup {
+    margin-bottom: 8px;
+  }
+
+  .formGroup label {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    min-height: 44px;
+  }
+
+  .formActions {
+    gap: 10px;
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    min-height: 44px;
+  }
+}
+
 @media (max-width: 768px) {
   .orderFormOverlay {
     padding: 8px;
@@ -296,6 +366,7 @@
   .orderFormContainer {
     max-height: 94vh;
     border-radius: 16px;
+    max-width: 95vw;
   }
 
   .orderFormHeader {
@@ -308,8 +379,8 @@
   }
 
   .closeBtn {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     font-size: 0.95rem;
   }
 
@@ -346,16 +417,16 @@
   }
 
   .orderForm {
-    padding: 8px 10px;
+    padding: 12px 10px;
   }
 
   .formRow {
     gap: 8px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .formGroup {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .formGroup label {
@@ -366,30 +437,33 @@
   .formGroup input,
   .formGroup select,
   .formGroup textarea {
-    padding: 6px 9px;
+    padding: 8px 9px;
     font-size: 0.8rem;
     border-radius: 8px;
+    min-height: 42px;
   }
 
   .formGroup textarea {
-    min-height: 30px;
+    min-height: 32px;
   }
 
   .formActions {
     gap: 8px;
-    margin-top: 6px;
-    padding-top: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
   }
 
   .submitBtn {
-    padding: 8px 14px;
+    padding: 10px 14px;
     font-size: 0.8rem;
     border-radius: 20px;
+    min-height: 42px;
   }
 
   .cancelBtn {
-    padding: 8px 14px;
+    padding: 10px 14px;
     font-size: 0.8rem;
+    min-height: 42px;
   }
 
   .errorMessage {
@@ -399,14 +473,15 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .orderFormOverlay {
     padding: 6px;
   }
 
   .orderFormContainer {
-    max-height: 96vh;
+    max-height: 95vh;
     border-radius: 14px;
+    max-width: 98vw;
   }
 
   .orderFormHeader {
@@ -419,69 +494,76 @@
   }
 
   .closeBtn {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     font-size: 0.9rem;
   }
 
-  .orderSummary,
-  .orderForm {
+  .orderSummary {
     padding: 6px 8px;
   }
 
+  .orderForm {
+    padding: 10px 8px;
+  }
+
   .formRow {
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    margin-bottom: 3px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
   }
 
   .formGroup {
-    margin-bottom: 3px;
+    margin-bottom: 8px;
   }
 
   .formGroup label {
     font-size: 0.7rem;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
   }
 
   .formGroup input,
   .formGroup select,
   .formGroup textarea {
-    padding: 5px 7px;
+    padding: 8px 8px;
     font-size: 0.75rem;
-    border-radius: 6px;
+    border-radius: 8px;
+    min-height: 40px;
   }
 
   .formGroup textarea {
-    min-height: 26px;
+    min-height: 30px;
   }
 
   .formActions {
-    gap: 6px;
-    margin-top: 3px;
-    padding-top: 5px;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 8px;
   }
 
   .submitBtn,
   .cancelBtn {
-    padding: 7px 12px;
+    padding: 10px 12px;
     font-size: 0.75rem;
+    min-height: 40px;
   }
 
   .errorMessage {
     padding: 5px 7px;
     font-size: 0.7rem;
+    margin-bottom: 6px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .orderFormOverlay {
     padding: 4px;
   }
 
   .orderFormContainer {
-    max-height: 98vh;
+    max-height: 96vh;
     border-radius: 12px;
+    max-width: 99vw;
   }
 
   .orderFormHeader {
@@ -494,36 +576,196 @@
   }
 
   .closeBtn {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     font-size: 0.85rem;
   }
 
   .orderSummary,
   .orderForm {
-    padding: 5px 6px;
+    padding: 6px 6px;
   }
 
   .formRow {
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    margin-bottom: 3px;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-bottom: 6px;
   }
 
   .formGroup {
-    margin-bottom: 3px;
+    margin-bottom: 6px;
   }
 
   .formGroup label {
     font-size: 0.65rem;
+    margin-bottom: 2px;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 7px 6px;
+    font-size: 0.7rem;
+    border-radius: 6px;
+    min-height: 38px;
+  }
+
+  .formGroup textarea {
+    min-height: 28px;
+  }
+
+  .formActions {
+    gap: 6px;
+    margin-top: 8px;
+    padding-top: 6px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 9px 10px;
+    font-size: 0.7rem;
+    min-height: 38px;
+  }
+
+  .errorMessage {
+    padding: 4px 6px;
+    font-size: 0.65rem;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .orderFormOverlay {
+    padding: 2px;
+  }
+
+  .orderFormContainer {
+    max-height: 98vh;
+    border-radius: 10px;
+    max-width: 100vw;
+  }
+
+  .orderFormHeader {
+    padding: 5px 6px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .orderFormHeader h2 {
+    font-size: 0.9rem;
+  }
+
+  .closeBtn {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+  }
+
+  .orderSummary,
+  .orderForm {
+    padding: 4px 5px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+
+  .formGroup {
+    margin-bottom: 5px;
+  }
+
+  .formGroup label {
+    font-size: 0.6rem;
+    margin-bottom: 2px;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 6px 5px;
+    font-size: 0.65rem;
+    border-radius: 5px;
+    min-height: 36px;
+  }
+
+  .formGroup textarea {
+    min-height: 26px;
+  }
+
+  .formActions {
+    gap: 5px;
+    margin-top: 6px;
+    padding-top: 5px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 8px 8px;
+    font-size: 0.65rem;
+    min-height: 36px;
+  }
+
+  .errorMessage {
+    padding: 3px 5px;
+    font-size: 0.6rem;
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 360px) {
+  .orderFormOverlay {
+    padding: 0;
+  }
+
+  .orderFormContainer {
+    max-height: 100vh;
+    border-radius: 8px;
+    max-width: 100vw;
+  }
+
+  .orderFormHeader {
+    padding: 4px 5px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .orderFormHeader h2 {
+    font-size: 0.85rem;
+  }
+
+  .closeBtn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+  }
+
+  .orderSummary,
+  .orderForm {
+    padding: 3px 4px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .formGroup {
+    margin-bottom: 4px;
+  }
+
+  .formGroup label {
+    font-size: 0.55rem;
     margin-bottom: 1px;
   }
 
   .formGroup input,
   .formGroup select,
   .formGroup textarea {
-    padding: 4px 6px;
-    font-size: 0.7rem;
+    padding: 5px 4px;
+    font-size: 0.6rem;
+    border-radius: 4px;
+    min-height: 34px;
   }
 
   .formGroup textarea {
@@ -531,19 +773,157 @@
   }
 
   .formActions {
-    gap: 5px;
-    margin-top: 3px;
-    padding-top: 5px;
+    gap: 4px;
+    margin-top: 5px;
+    padding-top: 4px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 7px 6px;
+    font-size: 0.6rem;
+    min-height: 34px;
+  }
+
+  .errorMessage {
+    padding: 2px 4px;
+    font-size: 0.55rem;
+    margin-bottom: 3px;
+  }
+}
+
+@media (max-width: 320px) {
+  .orderFormContainer {
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .orderFormHeader {
+    border-radius: 0;
+    padding: 3px 4px;
+  }
+
+  .orderFormHeader h2 {
+    font-size: 0.8rem;
+  }
+
+  .closeBtn {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+
+  .orderSummary,
+  .orderForm {
+    padding: 2px 3px;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 4px 3px;
+    font-size: 0.55rem;
+    min-height: 32px;
+  }
+
+  .formGroup textarea {
+    min-height: 22px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 6px 5px;
+    font-size: 0.55rem;
+    min-height: 32px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  .orderFormContainer {
+    max-height: 98vh;
+  }
+
+  .orderFormHeader {
+    padding: 6px 10px;
+  }
+
+  .orderFormHeader h2 {
+    font-size: 1rem;
+  }
+
+  .orderSummary {
+    padding: 6px 10px;
+  }
+
+  .orderForm {
+    padding: 10px;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .formGroup {
+    margin-bottom: 6px;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    min-height: 36px;
+  }
+
+  .formActions {
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    min-height: 36px;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .orderFormHeader {
+    padding: 4px 8px;
+  }
+
+  .orderFormHeader h2 {
+    font-size: 0.9rem;
+  }
+
+  .orderSummary {
+    padding: 4px 8px;
+  }
+
+  .orderForm {
+    padding: 8px;
+    max-height: 50vh;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 5px 6px;
+    font-size: 0.75rem;
+    min-height: 32px;
   }
 
   .submitBtn,
   .cancelBtn {
     padding: 6px 10px;
-    font-size: 0.7rem;
-  }
-
-  .errorMessage {
-    padding: 4px 6px;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
+    min-height: 32px;
   }
 }
