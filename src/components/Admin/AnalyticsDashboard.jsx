@@ -64,9 +64,9 @@ export default function AnalyticsDashboard() {
   const growthRate = previousMonthSales > 0 ? Math.round(((currentMonthSales - previousMonthSales) / previousMonthSales) * 100) : 0;
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('en-IN', {
+    return new Intl.NumberFormat('en-PK', {
       style: 'currency',
-      currency: 'INR',
+      currency: 'PKR',
       minimumFractionDigits: 0
     }).format(price);
   };
@@ -179,7 +179,6 @@ export default function AnalyticsDashboard() {
           <div className="statContent">
             <h3>Total Orders</h3>
             <div className="statValue">{totalOrders}</div>
-            <div className="statChange positive">↑ 12% from last month</div>
           </div>
         </div>
 
@@ -188,16 +187,6 @@ export default function AnalyticsDashboard() {
           <div className="statContent">
             <h3>Avg Order Value</h3>
             <div className="statValue">{formatPrice(avgOrderValue)}</div>
-            <div className="statChange positive">↑ 5% from last month</div>
-          </div>
-        </div>
-
-        <div className="statCard info">
-          <div className="statIcon">👥</div>
-          <div className="statContent">
-            <h3>Customers</h3>
-            <div className="statValue">1,234</div>
-            <div className="statChange positive">↑ 8% from last month</div>
           </div>
         </div>
       </div>
