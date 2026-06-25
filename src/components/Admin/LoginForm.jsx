@@ -92,11 +92,6 @@ export default function LoginForm({ onLogin }) {
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
-        
-        <div className="loginFooter">
-          <p>Admin Email: admin@stainlesssparkle.com</p>
-          <p>Password: stains@sparkles321456</p>
-        </div>
       </div>
     </div>
   );
