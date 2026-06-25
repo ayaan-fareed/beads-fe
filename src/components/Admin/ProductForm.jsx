@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { uploadImageToCloudinary } from '../../services/cloudinary.js';
 import './ProductForm.css';
 
 const categories = ['Necklace', 'Earrings', 'Ring', 'Bracelet'];
@@ -17,6 +18,8 @@ export default function ProductForm({ product, onSubmit, onCancel }) {
   });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [imageUploading, setImageUploading] = useState(false);
+  const [imageUploadError, setImageUploadError] = useState('');
 
   useEffect(() => {
     if (product) {
@@ -90,6 +93,38 @@ export default function ProductForm({ product, onSubmit, onCancel }) {
       ...prev,
       icon
     }));
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setImageUploading(true);
+    setImageUploadError('');
+
+    try {
+      const { url } = await uploadImageToCloudinary(file);
+      setFormData(prev => ({
+        ...prev,
+        image: url
+      }));
+    } catch (error) {
+      console.error('Image upload error:', error);
+      setImageUploadError(error.message || 'Failed to upload image. Please try again.');
+    } finally {
+      setImageUploading(false);
+    }
+  };
+
+  const handleImageUrlChange = (e) => {
+    const { value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      image: value
+    }));
+    if (imageUploadError) {
+      setImageUploadError('');
+    }
   };
 
   return (
@@ -188,21 +223,41 @@ export default function ProductForm({ product, onSubmit, onCancel }) {
         </div>
 
         <div className="formGroup">
-          <label htmlFor="image">Image URL</label>
-          <input
-            type="url"
-            id="image"
-            name="image"
-            value={formData.image}
-            onChange={handleChange}
-            placeholder="Enter image URL (optional)"
-            disabled={loading}
-          />
+          <label htmlFor="image">Product Image</label>
+          <div className="imageUploadControls">
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              onChange={handleImageUpload}
+              disabled={loading || imageUploading}
+              className="imageFileInput"
+            />
+            {imageUploading && (
+              <span className="uploadStatus">Uploading to Cloudinary...</span>
+            )}
+          </div>
+          {imageUploadError && <span className="errorText">{imageUploadError}</span>}
+
+          <div className="formGroup imageUrlGroup">
+            <label htmlFor="imageUrl">Image URL</label>
+            <input
+              type="url"
+              id="imageUrl"
+              name="image"
+              value={formData.image}
+              onChange={handleImageUrlChange}
+              placeholder="Cloudinary URL will appear here after upload"
+              disabled={loading || imageUploading}
+            />
+          </div>
+
           {formData.image && (
             <div className="imagePreview">
-              <img 
-                src={formData.image} 
-                alt="Preview" 
+              <img
+                src={formData.image}
+                alt="Preview"
                 onError={(e) => e.target.style.display = 'none'}
               />
             </div>
