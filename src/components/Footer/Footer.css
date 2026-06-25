@@ -31,6 +31,17 @@
   margin-bottom: 12px;
   font-weight: 600;
   letter-spacing: 1px;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: inherit;
+  padding: 0;
+}
+
+.footer-logo span {
+  font-style: italic;
+  color: #d4af37;
 }
 
 .tagline {
@@ -134,9 +145,14 @@
   display: flex;
   justify-content: space-between;
   padding: 60px 80px 40px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  gap: 40px;
+  gap: 80px;
+}
+
+.footer-section {
+  flex: 1 1 0;
+  min-width: 150px;
 }
 
 .footer-mobile-layout {
@@ -263,16 +279,32 @@
   .footer-mobile-layout {
     display: none;
   }
-  
-  .footer-brand-section {
-    display: none;
-  }
-  
+
   .footer-content {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 80px;
+    max-width: 1400px;
+    padding: 60px 40px 40px;
   }
-  
+
+  .footer-brand-section {
+    display: flex;
+    flex: 0 0 auto;
+    min-width: 260px;
+    text-align: left;
+    align-items: flex-start;
+    padding: 60px 0 40px;
+    border-bottom: none;
+  }
+
   .footer-desktop-layout {
     display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 60px 0 40px;
   }
 }

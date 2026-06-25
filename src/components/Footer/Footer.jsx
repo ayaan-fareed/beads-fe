@@ -2,11 +2,30 @@ import { useState } from 'react';
 import { PHONE } from '../../data/products.js';
 import './Footer.css';
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   const [activeAccordion, setActiveAccordion] = useState(null);
 
   const toggleAccordion = (section) => {
     setActiveAccordion(activeAccordion === section ? null : section);
+  };
+
+  const goTo = (page) => (e) => {
+    e.preventDefault();
+    onNavigate?.(page);
+  };
+
+  const goToCategory = (category) => (e) => {
+    e.preventDefault();
+    const url = new URL(window.location.href);
+    url.searchParams.set('category', category);
+    window.history.pushState({}, '', url);
+    onNavigate?.('shop');
+    window.dispatchEvent(new Event('categoryChange'));
+  };
+
+  const scrollToFooter = (e) => {
+    e.preventDefault();
+    document.querySelector('.footer')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const AccordionSection = ({ title, children, sectionId }) => (
@@ -31,12 +50,14 @@ export default function Footer() {
       <div className="footer-content">
         {/* Brand Section - Always Visible */}
         <div className="footer-brand-section">
-          <div className="footer-logo">Stainless sparkle</div>
+          <button className="footer-logo" onClick={goTo('home')}>
+            Stainless <span>sparkle</span>
+          </button>
           <p className="tagline">Handmade jewellery with love 💕</p>
           <p className="description">Every piece is unique and crafted just for you.</p>
           <div className="social-icons">
-            <a href="#" className="social-icon">f</a>
-            <a href="#" className="social-icon"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="https://www.facebook.com/stainless.sparkle" target="_blank" rel="noopener noreferrer" className="social-icon">f</a>
+            <a href="https://www.instagram.com/stainless_sparkle01" className="social-icon"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="instagramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style={{stopColor: '#F58529'}} />
@@ -49,7 +70,7 @@ export default function Footer() {
                 <circle cx="12" cy="12" r="4" stroke="url(#instagramGradient)" strokeWidth="2" fill="none"/>
                 <circle cx="18" cy="6" r="1" fill="url(#instagramGradient)"/>
               </svg></a>
-            <a href="#" className="social-icon">in</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">in</a>
           </div>
         </div>
 
@@ -58,41 +79,41 @@ export default function Footer() {
           <div className="footer-section">
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Track Order</a></li>
+              <li><a href="#" onClick={goTo('home')}>Home</a></li>
+              <li><a href="#" onClick={goTo('shop')}>Shop</a></li>
+              <li><a href="#" onClick={goTo('about')}>About Us</a></li>
+              <li><a href="#" onClick={goTo('about')}>Contact Us</a></li>
+              <li><a href="#" onClick={scrollToFooter}>Track Order</a></li>
             </ul>
           </div>
 
           <div className="footer-section">
             <h3>Categories</h3>
             <ul>
-              <li><a href="#">Necklaces</a></li>
-              <li><a href="#">Earrings</a></li>
-              <li><a href="#">Rings</a></li>
-              <li><a href="#">Bracelets</a></li>
-              <li><a href="#">Gift Sets</a></li>
+              <li><a href="#" onClick={goToCategory('Necklace')}>Necklaces</a></li>
+              <li><a href="#" onClick={goToCategory('Earrings')}>Earrings</a></li>
+              <li><a href="#" onClick={goToCategory('Ring')}>Rings</a></li>
+              <li><a href="#" onClick={goToCategory('Bracelet')}>Bracelets</a></li>
+              <li><a href="#" onClick={goTo('shop')}>Gift Sets</a></li>
             </ul>
           </div>
 
           <div className="footer-section">
             <h3>Customer Care</h3>
             <ul>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Shipping & Delivery</a></li>
-              <li><a href="#">Return & Exchange</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#" onClick={goTo('about')}>FAQs</a></li>
+              <li><a href="#" onClick={goTo('about')}>Shipping & Delivery</a></li>
+              <li><a href="#" onClick={goTo('about')}>Return & Exchange</a></li>
+              <li><a href="#" onClick={goTo('about')}>Privacy Policy</a></li>
+              <li><a href="#" onClick={goTo('about')}>Terms & Conditions</a></li>
             </ul>
           </div>
 
           <div className="footer-section">
             <h3>Contact Us</h3>
             <ul className="contact-info">
-              <li>WhatsApp: +82 308 916 8530</li>
-              <li>Instagram: @stainless_sparkle01</li>
+              <li><a href={`https://wa.me/${PHONE}`} target="_blank" rel="noopener noreferrer">WhatsApp: +82 308 916 8530</a></li>
+              <li><a href="https://www.instagram.com/stainless_sparkle01" target="_blank" rel="noopener noreferrer">Instagram: @stainless_sparkle01</a></li>
               <li>Karachi , Pakistan</li>
             </ul>
           </div>
@@ -102,38 +123,38 @@ export default function Footer() {
         <div className="footer-mobile-layout">
           <AccordionSection title="Quick Links" sectionId="quick-links">
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Track Order</a></li>
+              <li><a href="#" onClick={goTo('home')}>Home</a></li>
+              <li><a href="#" onClick={goTo('shop')}>Shop</a></li>
+              <li><a href="#" onClick={goTo('about')}>About Us</a></li>
+              <li><a href="#" onClick={goTo('about')}>Contact Us</a></li>
+              <li><a href="#" onClick={scrollToFooter}>Track Order</a></li>
             </ul>
           </AccordionSection>
 
           <AccordionSection title="Categories" sectionId="categories">
             <ul>
-              <li><a href="#">Necklaces</a></li>
-              <li><a href="#">Earrings</a></li>
-              <li><a href="#">Rings</a></li>
-              <li><a href="#">Bracelets</a></li>
-              <li><a href="#">Gift Sets</a></li>
+              <li><a href="#" onClick={goToCategory('Necklace')}>Necklaces</a></li>
+              <li><a href="#" onClick={goToCategory('Earrings')}>Earrings</a></li>
+              <li><a href="#" onClick={goToCategory('Ring')}>Rings</a></li>
+              <li><a href="#" onClick={goToCategory('Bracelet')}>Bracelets</a></li>
+              <li><a href="#" onClick={goTo('shop')}>Gift Sets</a></li>
             </ul>
           </AccordionSection>
 
           <AccordionSection title="Customer Care" sectionId="customer-care">
             <ul>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Shipping & Delivery</a></li>
-              <li><a href="#">Return & Exchange</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#" onClick={goTo('about')}>FAQs</a></li>
+              <li><a href="#" onClick={goTo('about')}>Shipping & Delivery</a></li>
+              <li><a href="#" onClick={goTo('about')}>Return & Exchange</a></li>
+              <li><a href="#" onClick={goTo('about')}>Privacy Policy</a></li>
+              <li><a href="#" onClick={goTo('about')}>Terms & Conditions</a></li>
             </ul>
           </AccordionSection>
 
           <AccordionSection title="Contact Us" sectionId="contact-us">
             <ul className="contact-info">
-              <li>WhatsApp: +82 308 916 8530</li>
-              <li>Instagram: @stainless_sparkle01</li>
+              <li><a href={`https://wa.me/${PHONE}`} target="_blank" rel="noopener noreferrer">WhatsApp: +82 308 916 8530</a></li>
+              <li><a href="https://www.instagram.com/stainless_sparkle01" target="_blank" rel="noopener noreferrer">Instagram: @stainless_sparkle01</a></li>
               <li>Karachi , Pakistan</li>
             </ul>
           </AccordionSection>

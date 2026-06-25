@@ -250,7 +250,7 @@ export default function Home({ onNavigate, onAddToCart }) {
           Shop The Collection →
         </button>
       </section>
-      <Footer />
+      <Footer onNavigate={onNavigate} />
     </main>
   );
 }

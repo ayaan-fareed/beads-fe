@@ -84,7 +84,7 @@ function MobileSlider({ items, renderItem, className = "" }) {
   );
 }
 
-export default function About() {
+export default function About({ onNavigate }) {
   return (
     <main>
       {/* ── HERO SECTION ── */}
@@ -319,7 +319,7 @@ export default function About() {
         </div>
       </section>
 
-      <Footer />
+      <Footer onNavigate={onNavigate} />
     </main>
   );
 }

@@ -140,8 +140,8 @@ export default function App() {
         <>
           <Navbar activePage={activePage} cartCount={cart.length} onNavigate={navigate} onOpenCart={() => setCartOpen(true)} />
           {activePage === 'home' && <Home onNavigate={navigate} onAddToCart={addToCart} />}
-          {activePage === 'shop' && <Shop onAddToCart={addToCart} products={products} loading={loading} error={error} />}
-          {activePage === 'about' && <About />}
+          {activePage === 'shop' && <Shop onAddToCart={addToCart} products={products} loading={loading} error={error} onNavigate={navigate} />}
+          {activePage === 'about' && <About onNavigate={navigate} />}
           <CartDrawer cart={cart} total={total} isOpen={cartOpen} onClose={() => setCartOpen(false)} onRemove={removeFromCart} onOrder={orderOnWhatsApp} onOrderForm={openOrderForm} onUpdateQuantity={updateQuantity} />
           <OrderForm cart={cart} total={total} isOpen={orderFormOpen} onClose={closeOrderForm} onOrderSuccess={handleOrderSuccess} />
           <Toast message={toast} />
